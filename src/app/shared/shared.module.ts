@@ -12,9 +12,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 
 import { CardComponent } from './card/card.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { ToastComponent } from './toast/toast.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-
-const uiComponents = [CardComponent, DialogComponent, ToolbarComponent];
 
 const pngModules = [
   ButtonModule,
@@ -25,6 +24,13 @@ const pngModules = [
   TabMenuModule,
   ToastModule,
   ToolbarModule,
+];
+
+const uiComponents = [
+  CardComponent,
+  DialogComponent,
+  ToastComponent,
+  ToolbarComponent,
 ];
 
 @NgModule({
