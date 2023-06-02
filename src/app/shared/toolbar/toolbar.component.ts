@@ -48,7 +48,5 @@ export class ToolbarComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    this.activeItem = this.items[2];
-  }
+  ngOnInit() {}
 }
