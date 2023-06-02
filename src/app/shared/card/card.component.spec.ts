@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SharedModule } from 'primeng/api';
 import { CardComponent } from './card.component';
 
 describe('CardComponent', () => {
@@ -8,9 +8,9 @@ describe('CardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardComponent ]
-    })
-    .compileComponents();
+      imports: [SharedModule],
+      declarations: [CardComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,10 @@ describe('CardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it(`should show 'test title'`, () => {
+  //   component.title = 'test title';
+  //   const titleElement = fixture.nativeElement.querySelector('p-card-title');
+  //   expect(titleElement.innerText).toEqual('test title');
+  // });
 });

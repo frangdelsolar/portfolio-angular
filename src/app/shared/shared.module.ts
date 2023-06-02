@@ -1,17 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzCardModule } from 'ng-zorro-antd/card';
-
 import { CardComponent } from './card/card.component';
+import { MenubarModule } from 'primeng/menubar';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
-const uiComponents = [CardComponent];
-const antdModules = [NzButtonModule, NzCardModule];
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { ToolbarModule } from 'primeng/toolbar';
+
+const uiComponents = [CardComponent, ToolbarComponent];
+const pngModules = [
+  ButtonModule,
+  CardModule,
+  MenubarModule,
+  TabMenuModule,
+  ToolbarModule,
+];
 
 @NgModule({
   declarations: [...uiComponents],
-  imports: [CommonModule, ...antdModules],
-  exports: [...uiComponents, ...antdModules],
+  imports: [CommonModule, ...pngModules],
+  exports: [...uiComponents, ...pngModules],
 })
 export class SharedModule {}
