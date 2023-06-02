@@ -1,5 +1,11 @@
-<p-tabMenu
-  [scrollable]="true"
-  [model]="items"
-  [activeItem]="activeItem"
-></p-tabMenu>
+<div class="container">
+  <app-tab-menu
+    [scrollable]="true"
+    [items]="items"
+    [activeItem]="activeItem"
+  ></app-tab-menu>
+  <div class="actions">
+    <p-button class="button" (onClick)="login()" label="Login"></p-button>
+    <p-button class="button" (onClick)="logout()" label="Logout"></p-button>
+  </div>
+</div>

@@ -16,7 +16,7 @@ export class ToastComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.toastSvc.ToastDataObservable.subscribe((data) => {
+    this.toastSvc.ToastDataObservable.subscribe((data: ToastData) => {
       this.messageService.add(data);
     });
   }

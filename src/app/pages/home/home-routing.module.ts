@@ -7,24 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children: [
-      {
-        path: 'resume',
-        component: HomeComponent,
-      },
-      {
-        path: 'works',
-        component: HomeComponent,
-      },
-      {
-        path: 'blog',
-        component: HomeComponent,
-      },
-      {
-        path: 'contact',
-        component: HomeComponent,
-      },
-    ],
   },
 ];
 

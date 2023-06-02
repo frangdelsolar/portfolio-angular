@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
+import { ToastService } from '@app/core/services/toast.service';
 import { LoginComponent } from '@app/pages/auth/login/login.component';
 import { MenuItem } from 'primeng/api';
 
@@ -12,49 +13,34 @@ export class ToolbarComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
 
-  constructor(private dialogSvc: AppDialogService) {}
+  constructor(
+    private dialogSvc: AppDialogService,
+    private toastSvc: ToastService
+  ) {}
 
   ngOnInit() {
     this.items = [
       {
         label: 'Resume',
         icon: 'pi pi-fw pi-file',
-        routerLink: '/resume',
       },
       {
         label: 'Works',
         icon: 'pi pi-fw pi-briefcase',
-        routerLink: '/works',
       },
       {
         label: 'Blog',
         icon: 'pi pi-fw pi-book',
-        routerLink: '/blog',
       },
       {
         label: 'Contact',
         icon: 'pi pi-fw pi-envelope',
-        routerLink: '/contact',
-      },
-      {
-        label: 'Login',
-        icon: 'pi pi-fw pi-sign-in',
-        command: () => {
-          this.showLogin();
-        },
-      },
-      {
-        label: 'Logout',
-        icon: 'pi pi-fw pi-sign-out',
-        skipLocationChange: true,
-        command: () => {
-          console.log('confirm before login out');
-        },
       },
     ];
   }
 
-  showLogin() {
+  login() {
+    console.log('login');
     this.dialogSvc.show({
       component: LoginComponent,
       params: {
@@ -65,5 +51,19 @@ export class ToolbarComponent implements OnInit {
         maximizable: true,
       },
     });
+  }
+
+  logout() {
+    console.log('confirm before login out');
+    this.toastSvc.add({
+      severity: 'success',
+      summary: 'Log out',
+      detail: 'Success',
+    });
+  }
+
+  onActiveItemChange(event: any) {
+    console.log(event);
+    this.activeItem = event;
   }
 }

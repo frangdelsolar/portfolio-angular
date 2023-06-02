@@ -12,6 +12,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 
 import { CardComponent } from './card/card.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { ToastComponent } from './toast/toast.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -29,6 +30,7 @@ const pngModules = [
 const uiComponents = [
   CardComponent,
   DialogComponent,
+  TabMenuComponent,
   ToastComponent,
   ToolbarComponent,
 ];
