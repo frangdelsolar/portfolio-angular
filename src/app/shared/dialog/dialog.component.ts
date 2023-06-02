@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeComponent } from '@app/pages/home/home.component';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
