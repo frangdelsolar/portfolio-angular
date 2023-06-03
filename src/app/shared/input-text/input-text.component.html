@@ -1,0 +1,16 @@
+<div *ngIf="!editOn">
+  <h3 class="py-0 my-0">{{ label }}</h3>
+  <p class="py-0 my-0">{{ control.value }}</p>
+</div>
+<div *ngIf="editOn">
+  <span class="p-float-label mb-2">
+    <input
+      id="in-text"
+      class="w-10"
+      [type]="type"
+      pInputText
+      [formControl]="control"
+    />
+    <label htmlFor="in-text">{{ label }}</label>
+  </span>
+</div>

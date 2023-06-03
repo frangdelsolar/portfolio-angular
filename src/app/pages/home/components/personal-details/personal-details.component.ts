@@ -20,7 +20,6 @@ export class PersonalDetailsComponent implements OnInit {
     url: 'https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg',
   };
 
-  isAuth: boolean = true;
   editModeOn: boolean = false;
 
   form: FormGroup;
@@ -31,8 +30,10 @@ export class PersonalDetailsComponent implements OnInit {
   cityControl = new FormControl('', [Validators.required]);
   countryControl = new FormControl('', [Validators.required]);
 
-  constructor(private fb: FormBuilder, private personalSvc: PersonalService) {
-    this.form = fb.group({
+  constructor(private fb: FormBuilder, private personalSvc: PersonalService) {}
+
+  ngOnInit(): void {
+    this.form = this.fb.group({
       first_name: this.firstNameControl,
       last_name: this.lastNameControl,
       email: this.emailControl,
@@ -40,9 +41,6 @@ export class PersonalDetailsComponent implements OnInit {
       city: this.cityControl,
       country: this.countryControl,
     });
-  }
-
-  ngOnInit(): void {
     this.personalSvc.get().subscribe((response: any) => {
       if (response) {
         this.form.patchValue(response);
@@ -50,19 +48,8 @@ export class PersonalDetailsComponent implements OnInit {
           alt: response.profile_picture.name,
           url: response.profile_picture.image_url,
         };
-        console.log(response);
       }
     });
-  }
-
-  onEditClick() {
-    if (this.isAuth) {
-      this.editModeOn = true;
-    }
-  }
-
-  onCancelClick() {
-    this.editModeOn = false;
   }
 
   onSaveClick() {
@@ -74,8 +61,5 @@ export class PersonalDetailsComponent implements OnInit {
         }
       });
     }
-
-    // onError
-    // show inline errors
   }
 }

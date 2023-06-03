@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
+import { AuthService } from '@app/core/services/auth.service';
 import { ToastService } from '@app/core/services/toast.service';
 import { LoginComponent } from '@app/pages/auth/login/login.component';
 import { MenuItem } from 'primeng/api';
@@ -12,13 +13,19 @@ import { MenuItem } from 'primeng/api';
 export class ToolbarComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
+  isAuth: boolean = false;
 
   constructor(
+    private authSvc: AuthService,
     private dialogSvc: AppDialogService,
     private toastSvc: ToastService
   ) {}
 
   ngOnInit() {
+    this.authSvc.isAuthenticatedObservable.subscribe((isAuth) => {
+      this.isAuth = isAuth;
+    });
+
     this.items = [
       {
         label: 'Resume',
@@ -40,7 +47,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   login() {
-    console.log('login');
+    this.authSvc.login();
     this.dialogSvc.show({
       component: LoginComponent,
       params: {
@@ -54,7 +61,8 @@ export class ToolbarComponent implements OnInit {
   }
 
   logout() {
-    console.log('confirm before login out');
+    this.authSvc.logout();
+
     this.toastSvc.add({
       severity: 'success',
       summary: 'Log out',

@@ -6,8 +6,21 @@
       [activeItem]="activeItem"
     ></app-tab-menu>
     <div class="actions">
-      <p-button class="button" (onClick)="login()" label="Login"></p-button>
-      <p-button class="button" (onClick)="logout()" label="Logout"></p-button>
+      <p-button
+        *ngIf="!isAuth"
+        (onClick)="login()"
+        label="Login"
+        icon="pi pi-sign-in"
+        styleClass="p-button-sm p-button-text"
+      ></p-button>
+
+      <p-button
+        *ngIf="isAuth"
+        (onClick)="logout()"
+        label="Logout"
+        icon="pi pi-sign-out"
+        styleClass="p-button-sm p-button-text p-button-danger"
+      ></p-button>
     </div>
   </div>
 </app-card>

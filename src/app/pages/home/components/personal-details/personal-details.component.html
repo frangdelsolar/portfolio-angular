@@ -1,27 +1,9 @@
 <app-card [title]="title" [image]="image">
-  <section *ngIf="isAuth" id="actions">
-    <div *ngIf="!editModeOn" class="flex justify-content-end flex-wrap">
-      <p-button
-        label="Edit"
-        styleClass="p-button-text"
-        (onClick)="onEditClick()"
-      ></p-button>
-    </div>
+  <app-edit-actions
+    [(editModeOn)]="editModeOn"
+    [saveCallback]="onSaveClick.bind(this)"
+  ></app-edit-actions>
 
-    <div *ngIf="editModeOn" class="flex justify-content-end flex-wrap">
-      <p-button
-        label="Cancel"
-        styleClass="p-button-secondary p-button-text"
-        (onClick)="onCancelClick()"
-      ></p-button>
-
-      <p-button
-        label="Save"
-        styleClass="p-button-outlined"
-        (onClick)="onSaveClick()"
-      ></p-button>
-    </div>
-  </section>
   <section id="details">
     <div class="grid">
       <div class="col-2 flex align-items-center justify-content-center">
@@ -35,7 +17,7 @@
           </p>
         </div>
 
-        <div *ngIf="isAuth && editModeOn">
+        <div *ngIf="editModeOn">
           <span class="p-float-label my-4">
             <input
               id="firstName"
@@ -63,46 +45,24 @@
         <i class="pi pi-envelope" style="font-size: 2rem"></i>
       </div>
       <div class="col-10">
-        <div *ngIf="!editModeOn">
-          <h3 class="py-0 my-0">Email</h3>
-          <p class="py-0 my-0">{{ emailControl.value }}</p>
-        </div>
-
-        <div *ngIf="isAuth && editModeOn">
-          <span class="p-float-label mb-2">
-            <input
-              id="email"
-              class="w-10"
-              type="email"
-              pInputText
-              [formControl]="emailControl"
-            />
-            <label htmlFor="email">Email</label>
-          </span>
-        </div>
+        <app-input-text
+          [editOn]="editModeOn"
+          [label]="'Email'"
+          [control]="emailControl"
+          [type]="'email'"
+        ></app-input-text>
       </div>
 
       <div class="col-2 flex align-items-center justify-content-center">
         <i class="pi pi-phone" style="font-size: 2rem"></i>
       </div>
       <div class="col-10">
-        <div *ngIf="!editModeOn">
-          <h3 class="py-0 my-0">Phone</h3>
-          <p *ngIf="!editModeOn" class="py-0 my-0">+{{ phoneControl.value }}</p>
-        </div>
-
-        <div *ngIf="isAuth && editModeOn">
-          <span class="p-float-label mb-2">
-            <input
-              id="phone"
-              class="w-10"
-              type="text"
-              pInputText
-              [formControl]="phoneControl"
-            />
-            <label htmlFor="phone">Phone</label>
-          </span>
-        </div>
+        <app-input-text
+          [editOn]="editModeOn"
+          [label]="'Phone'"
+          [control]="phoneControl"
+          [type]="'text'"
+        ></app-input-text>
       </div>
 
       <div class="col-2 flex align-items-center justify-content-center">
@@ -116,7 +76,7 @@
           </p>
         </div>
 
-        <div *ngIf="isAuth && editModeOn">
+        <div *ngIf="editModeOn">
           <span class="p-float-label my-4">
             <input
               id="city"
