@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { MessagesModule } from 'primeng/messages';
 import { TabMenuModule } from 'primeng/tabmenu';
@@ -20,8 +22,11 @@ const pngModules = [
   ButtonModule,
   CardModule,
   DynamicDialogModule,
+  FormsModule,
+  InputTextModule,
   MenubarModule,
   MessagesModule,
+  ReactiveFormsModule,
   TabMenuModule,
   ToastModule,
   ToolbarModule,

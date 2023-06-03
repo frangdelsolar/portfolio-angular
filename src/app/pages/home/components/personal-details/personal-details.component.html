@@ -1,0 +1,144 @@
+<app-card [title]="title" [image]="image">
+  <section *ngIf="isAuth" id="actions">
+    <div *ngIf="!editModeOn" class="flex justify-content-end flex-wrap">
+      <p-button
+        label="Edit"
+        styleClass="p-button-text"
+        (onClick)="onEditClick()"
+      ></p-button>
+    </div>
+
+    <div *ngIf="editModeOn" class="flex justify-content-end flex-wrap">
+      <p-button
+        label="Cancel"
+        styleClass="p-button-secondary p-button-text"
+        (onClick)="onCancelClick()"
+      ></p-button>
+
+      <p-button
+        label="Save"
+        styleClass="p-button-outlined"
+        (onClick)="onSaveClick()"
+      ></p-button>
+    </div>
+  </section>
+  <section id="details">
+    <div class="grid">
+      <div class="col-2 flex align-items-center justify-content-center">
+        <i class="pi pi-id-card" style="font-size: 2rem"></i>
+      </div>
+      <div class="col-10">
+        <div *ngIf="!editModeOn">
+          <h3 class="py-0 my-0">Name</h3>
+          <p class="py-0 my-0">
+            {{ firstNameControl.value }} {{ lastNameControl.value }}
+          </p>
+        </div>
+
+        <div *ngIf="isAuth && editModeOn">
+          <span class="p-float-label my-4">
+            <input
+              id="firstName"
+              class="w-10"
+              type="text"
+              pInputText
+              [formControl]="firstNameControl"
+            />
+            <label htmlFor="firstName">First Name</label>
+          </span>
+          <span class="p-float-label mb-4">
+            <input
+              id="lastName"
+              class="w-10"
+              type="text"
+              pInputText
+              [formControl]="lastNameControl"
+            />
+            <label htmlFor="lastName">Last Name</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-2 flex align-items-center justify-content-center">
+        <i class="pi pi-envelope" style="font-size: 2rem"></i>
+      </div>
+      <div class="col-10">
+        <div *ngIf="!editModeOn">
+          <h3 class="py-0 my-0">Email</h3>
+          <p class="py-0 my-0">{{ emailControl.value }}</p>
+        </div>
+
+        <div *ngIf="isAuth && editModeOn">
+          <span class="p-float-label mb-2">
+            <input
+              id="email"
+              class="w-10"
+              type="email"
+              pInputText
+              [formControl]="emailControl"
+            />
+            <label htmlFor="email">Email</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-2 flex align-items-center justify-content-center">
+        <i class="pi pi-phone" style="font-size: 2rem"></i>
+      </div>
+      <div class="col-10">
+        <div *ngIf="!editModeOn">
+          <h3 class="py-0 my-0">Phone</h3>
+          <p *ngIf="!editModeOn" class="py-0 my-0">+{{ phoneControl.value }}</p>
+        </div>
+
+        <div *ngIf="isAuth && editModeOn">
+          <span class="p-float-label mb-2">
+            <input
+              id="phone"
+              class="w-10"
+              type="text"
+              pInputText
+              [formControl]="phoneControl"
+            />
+            <label htmlFor="phone">Phone</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-2 flex align-items-center justify-content-center">
+        <i class="pi pi-map-marker" style="font-size: 2rem"></i>
+      </div>
+      <div class="col-10">
+        <div *ngIf="!editModeOn">
+          <h3 class="py-0 my-0">Location</h3>
+          <p class="py-0 my-0">
+            {{ cityControl.value }}, {{ countryControl.value }}
+          </p>
+        </div>
+
+        <div *ngIf="isAuth && editModeOn">
+          <span class="p-float-label my-4">
+            <input
+              id="city"
+              class="w-10"
+              type="text"
+              pInputText
+              [formControl]="cityControl"
+            />
+            <label htmlFor="city">City</label>
+          </span>
+          <span class="p-float-label mb-4">
+            <input
+              id="country"
+              class="w-10"
+              type="text"
+              pInputText
+              [formControl]="countryControl"
+            />
+            <label htmlFor="countryControl">Country</label>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</app-card>
