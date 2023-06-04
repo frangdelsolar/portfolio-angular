@@ -44,6 +44,8 @@ export class ToolbarComponent implements OnInit {
         icon: 'pi pi-fw pi-envelope',
       },
     ];
+
+    this.activeItem = this.items[0];
   }
 
   login() {
@@ -71,7 +73,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   onActiveItemChange(event: any) {
-    console.log(event);
     this.activeItem = event;
   }
 }

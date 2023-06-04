@@ -8,6 +8,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { MessagesModule } from 'primeng/messages';
+import { RippleModule } from 'primeng/ripple';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -29,6 +30,7 @@ const pngModules = [
   MenubarModule,
   MessagesModule,
   ReactiveFormsModule,
+  RippleModule,
   TabMenuModule,
   ToastModule,
   ToolbarModule,

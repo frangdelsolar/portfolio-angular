@@ -1,0 +1,63 @@
+<app-card
+  [footerActionsOn]="true"
+  [(editModeOn)]="editModeOn"
+  [saveCallback]="onSaveClick.bind(this)"
+>
+  <div
+    *ngIf="!editModeOn"
+    class="flex flex-row column-gap-3 flex-wrap justify-content-center align-items-center py-0 my-0"
+  >
+    <div
+      class="flex flex-column col-5 justify-content-center align-items-center"
+    >
+      <a
+        href="hola"
+        pButton
+        pRipple
+        icon="pi pi-github"
+        class="p-button-rounded p-button-text p-button-raised p-button-secondary"
+        style="text-decoration: none"
+      ></a>
+    </div>
+    <div
+      class="flex flex-column col-5 justify-content-center align-items-center"
+    >
+      <a
+        href="hola"
+        pButton
+        pRipple
+        icon="pi pi-linkedin"
+        class="p-button-rounded p-button-text p-button-raised p-button-secondary"
+        style="text-decoration: none"
+      ></a>
+    </div>
+  </div>
+
+  <div *ngIf="editModeOn">
+    <div class="grid pt-5">
+      <div class="col-2 flex align-items-center justify-content-center">
+        <i class="pi pi-github" style="font-size: 2rem"></i>
+      </div>
+      <div class="col-10">
+        <app-input-text
+          [editOn]="editModeOn"
+          [label]="'Github'"
+          [control]="githubControl"
+          [type]="'text'"
+        ></app-input-text>
+      </div>
+
+      <div class="col-2 flex align-items-center justify-content-center">
+        <i class="pi pi-linkedin" style="font-size: 2rem"></i>
+      </div>
+      <div class="col-10">
+        <app-input-text
+          [editOn]="editModeOn"
+          [label]="'Linkedin'"
+          [control]="linkedinControl"
+          [type]="'text'"
+        ></app-input-text>
+      </div>
+    </div>
+  </div>
+</app-card>
