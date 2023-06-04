@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { ToastService } from '@app/core/services/toast.service';
-import { LoginComponent } from '@app/pages/auth/login/login.component';
+import { LoginFormComponent } from '@app/pages/auth/components/login-form/login-form.component';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -22,7 +22,7 @@ export class ToolbarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authSvc.isAuthenticatedObservable.subscribe((isAuth) => {
+    this.authSvc.isAuthenticatedObservable.subscribe((isAuth: any) => {
       this.isAuth = isAuth;
     });
 
@@ -49,9 +49,8 @@ export class ToolbarComponent implements OnInit {
   }
 
   login() {
-    this.authSvc.login();
     this.dialogSvc.show({
-      component: LoginComponent,
+      component: LoginFormComponent,
       params: {
         header: 'Login',
         width: '50%',

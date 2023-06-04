@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PasswordResetComponent } from './pages/auth/components/password-reset/password-reset.component';
 
 const routes: Routes = [
   {
@@ -8,6 +9,10 @@ const routes: Routes = [
       import('./pages/home/home-routing.module').then(
         (m) => m.HomeRoutingModule
       ),
+  },
+  {
+    path: 'reset-password',
+    component: PasswordResetComponent,
   },
 ];
 

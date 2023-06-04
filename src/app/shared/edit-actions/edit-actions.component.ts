@@ -17,7 +17,7 @@ export class EditActionsComponent implements OnInit {
   constructor(private authSvc: AuthService) {}
 
   ngOnInit(): void {
-    this.authSvc.isAuthenticatedObservable.subscribe((isAuth) => {
+    this.authSvc.isAuthenticatedObservable.subscribe((isAuth: boolean) => {
       this.isAuth = isAuth;
     });
   }

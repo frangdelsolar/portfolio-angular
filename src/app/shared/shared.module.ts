@@ -4,10 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { MessagesModule } from 'primeng/messages';
+import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ToastModule } from 'primeng/toast';
@@ -24,11 +26,13 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 const pngModules = [
   ButtonModule,
   CardModule,
+  DividerModule,
   DynamicDialogModule,
   FormsModule,
   InputTextModule,
   MenubarModule,
   MessagesModule,
+  PasswordModule,
   ReactiveFormsModule,
   RippleModule,
   TabMenuModule,

@@ -5,21 +5,24 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { SocialService } from '@app/core/controllers/social.controller';
+import { AttachmentService } from '@app/core/controllers/attachment.controller';
 
 @Component({
-  selector: 'app-social-media',
-  templateUrl: './social-media.component.html',
-  styleUrls: ['./social-media.component.scss'],
+  selector: 'app-attachments',
+  templateUrl: './attachments.component.html',
+  styleUrls: ['./attachments.component.scss'],
 })
-export class SocialMediaComponent implements OnInit {
+export class AttachmentsComponent implements OnInit {
   editModeOn: boolean = false;
 
   form: FormGroup;
   githubControl = new FormControl('', [Validators.required]);
   linkedinControl = new FormControl('', [Validators.required]);
 
-  constructor(private fb: FormBuilder, private socialSvc: SocialService) {}
+  constructor(
+    private fb: FormBuilder,
+    private attachementSvc: AttachmentService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -27,14 +30,14 @@ export class SocialMediaComponent implements OnInit {
       linkedin: this.linkedinControl,
     });
 
-    this.socialSvc.get().subscribe((data: any) => {
+    this.attachementSvc.get().subscribe((data: any) => {
       this.form.patchValue(data);
     });
   }
 
   onSaveClick() {
     if (this.form.valid) {
-      this.socialSvc.update(this.form.value).subscribe((response: any) => {
+      this.attachementSvc.update(this.form.value).subscribe((response: any) => {
         if (response) {
           this.form.patchValue(response);
           this.editModeOn = false;

@@ -1,0 +1,14 @@
+<app-card>
+  <app-edit-actions
+    [(editModeOn)]="editModeOn"
+    [saveCallback]="onSaveClick.bind(this)"
+  ></app-edit-actions>
+  <div
+    *ngIf="!editModeOn"
+    class="flex flex-row column-gap-3 flex-wrap justify-content-center align-items-center py-0 my-0"
+  >
+    File.pdf
+  </div>
+
+  <div *ngIf="editModeOn">file edit</div>
+</app-card>

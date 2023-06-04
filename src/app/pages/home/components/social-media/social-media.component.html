@@ -1,8 +1,8 @@
-<app-card
-  [footerActionsOn]="true"
-  [(editModeOn)]="editModeOn"
-  [saveCallback]="onSaveClick.bind(this)"
->
+<app-card>
+  <app-edit-actions
+    [(editModeOn)]="editModeOn"
+    [saveCallback]="onSaveClick.bind(this)"
+  ></app-edit-actions>
   <div
     *ngIf="!editModeOn"
     class="flex flex-row column-gap-3 flex-wrap justify-content-center align-items-center py-0 my-0"
@@ -11,7 +11,8 @@
       class="flex flex-column col-5 justify-content-center align-items-center"
     >
       <a
-        href="hola"
+        [href]="githubControl.value"
+        target="_blank"
         pButton
         pRipple
         icon="pi pi-github"
@@ -23,7 +24,8 @@
       class="flex flex-column col-5 justify-content-center align-items-center"
     >
       <a
-        href="hola"
+        [href]="linkedinControl.value"
+        target="_blank"
         pButton
         pRipple
         icon="pi pi-linkedin"
