@@ -1,1 +1,11 @@
-<app-card title="About Me"></app-card>
+<app-card title="About Me">
+  <app-edit-actions
+    [(editModeOn)]="editModeOn"
+    [saveCallback]="onSaveClick.bind(this)"
+  ></app-edit-actions>
+  <div *ngIf="!editModeOn" [innerHtml]="aboutHtmlControl.value"></div>
+  <app-input-editor
+    *ngIf="editModeOn"
+    [control]="aboutHtmlControl"
+  ></app-input-editor>
+</app-card>

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { DividerModule } from 'primeng/divider';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -20,6 +21,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { CardComponent } from './card/card.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { EditActionsComponent } from './edit-actions/edit-actions.component';
+import { InputEditorComponent } from './input-editor/input-editor.component';
 import { InputTextComponent } from './input-text/input-text.component';
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { ToastComponent } from './toast/toast.component';
@@ -28,6 +30,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 const pngModules = [
   ButtonModule,
   CardModule,
+  CKEditorModule,
   DividerModule,
   DynamicDialogModule,
   FormsModule,
@@ -48,6 +51,7 @@ const uiComponents = [
   CardComponent,
   DialogComponent,
   EditActionsComponent,
+  InputEditorComponent,
   InputTextComponent,
   TabMenuComponent,
   ToastComponent,

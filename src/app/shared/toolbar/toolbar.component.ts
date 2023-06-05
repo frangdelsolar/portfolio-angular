@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
 import { AuthService } from '@app/core/services/auth.service';
 import { ToastService } from '@app/core/services/toast.service';
@@ -11,6 +11,9 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
+  @Input() activeTab: string = 'Resume';
+  @Output() activeTabChange: EventEmitter<string> = new EventEmitter();
+
   items: MenuItem[];
   activeItem: MenuItem;
   isAuth: boolean = false;

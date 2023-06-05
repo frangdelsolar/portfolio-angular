@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -8,12 +8,21 @@ import { MenuItem } from 'primeng/api';
 })
 export class TabMenuComponent implements OnInit {
   @Input() items: MenuItem[];
-  @Input() activeItem: MenuItem;
-  @Input() scrollable: boolean = true;
 
-  @Output() onActiveItemChange: MenuItem;
+  activeItem: MenuItem;
 
-  constructor() {}
+  ngOnInit() {
+    if (this.items.length > 0) {
+      this.activeItem = this.items[0];
+    }
+  }
 
-  ngOnInit(): void {}
+  onActiveItemChange(event: any) {
+    console.log(event);
+    this.activeItem = event;
+  }
+
+  activateLast() {
+    this.activeItem = this.items[this.items.length - 1];
+  }
 }

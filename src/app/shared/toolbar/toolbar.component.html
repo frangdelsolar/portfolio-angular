@@ -1,10 +1,6 @@
 <app-card>
   <div class="container">
-    <app-tab-menu
-      [scrollable]="true"
-      [items]="items"
-      [activeItem]="activeItem"
-    ></app-tab-menu>
+    <app-tab-menu [items]="items"></app-tab-menu>
     <div class="actions">
       <p-button
         *ngIf="!isAuth"

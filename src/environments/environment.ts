@@ -11,6 +11,7 @@ export const environment = {
   },
 
   apiUrl: '',
+  apiAbout: '',
   apiContactMe: '',
   apiUrlLogin: '',
   apiPasswordReset: '',
@@ -18,4 +19,5 @@ export const environment = {
   apiAttachment: '',
   apiPersonal: '',
   apiSocial: '',
+  apiSkill: '',
 };
