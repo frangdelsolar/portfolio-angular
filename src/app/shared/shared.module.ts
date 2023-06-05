@@ -13,6 +13,7 @@ import { MessagesModule } from 'primeng/messages';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
@@ -38,6 +39,7 @@ const pngModules = [
   ReactiveFormsModule,
   RippleModule,
   TabMenuModule,
+  TabViewModule,
   ToastModule,
   ToolbarModule,
 ];
