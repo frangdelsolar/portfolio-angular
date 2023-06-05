@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AppDialogService } from '@app/core/services/app-dialog.service';
 import { AuthService } from '@core/services/auth.service';
 import { MessageService } from 'primeng/api';
 
@@ -21,7 +22,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private messageService: MessageService,
-    private authSvc: AuthService
+    private authSvc: AuthService,
+    private dialogSvc: AppDialogService
   ) {
     this.form = fb.group({
       email: this.email,
@@ -45,6 +47,7 @@ export class LoginFormComponent implements OnInit {
           });
         }
       );
+      this.dialogSvc.close();
     } else {
       this.messageService.add({
         severity: 'error',

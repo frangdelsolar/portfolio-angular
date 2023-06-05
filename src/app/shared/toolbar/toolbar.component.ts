@@ -53,7 +53,7 @@ export class ToolbarComponent implements OnInit {
       component: LoginFormComponent,
       params: {
         header: 'Login',
-        width: '50%',
+        width: '30%',
         contentStyle: { overflow: 'auto' },
         baseZIndex: 10000,
         maximizable: true,

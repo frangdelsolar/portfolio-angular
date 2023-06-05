@@ -25,6 +25,10 @@ export class DialogComponent implements OnInit {
     this.appDialogSvc.DialogShowObservable.subscribe((showModal) => {
       if (showModal) {
         this.show();
+      } else {
+        if (this.ref) {
+          this.ref.close();
+        }
       }
     });
 
