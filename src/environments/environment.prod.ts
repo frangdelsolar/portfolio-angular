@@ -12,6 +12,7 @@ export const environment = {
 
   apiUrl: 'https://portfolioapi.us.aldryn.io/',
   apiAttachment: 'api/attachments/',
+  apiContactMe: 'mail/',
   apiPersonal: 'api/personal/',
   apiSocial: 'api/social/',
   apiUrlLogin: 'api/token/',

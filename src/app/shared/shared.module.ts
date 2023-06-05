@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { MessagesModule } from 'primeng/messages';
@@ -29,6 +30,7 @@ const pngModules = [
   DividerModule,
   DynamicDialogModule,
   FormsModule,
+  InputTextareaModule,
   InputTextModule,
   MenubarModule,
   MessagesModule,

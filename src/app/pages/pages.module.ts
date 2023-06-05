@@ -8,6 +8,7 @@ import { PersonalDetailsComponent } from './home/components/personal-details/per
 import { SocialMediaComponent } from './home/components/social-media/social-media.component';
 import { LoginFormComponent } from './auth/components/login-form/login-form.component';
 import { PasswordResetComponent } from './auth/components/password-reset/password-reset.component';
+import { ContactComponent } from './home/components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PasswordResetComponent } from './auth/components/password-reset/passwor
     PasswordResetComponent,
     PersonalDetailsComponent,
     SocialMediaComponent,
+    ContactComponent,
   ],
   imports: [CommonModule, SharedModule],
 })
