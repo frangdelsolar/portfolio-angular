@@ -8,19 +8,34 @@
     ></p-button>
   </div>
 
-  <div *ngIf="editModeOn" class="flex justify-content-end flex-wrap">
-    <p-button
-      id="cancel"
-      label="Cancel"
-      styleClass="p-button-secondary p-button-text"
-      (onClick)="onCancelClick()"
-    ></p-button>
+  <div
+    *ngIf="editModeOn"
+    class="flex flex-row flex-wrap justify-content-between"
+  >
+    <div>
+      <p-button
+        *ngIf="addButtonOn"
+        id="add"
+        label="Add New"
+        styleClass="p-button"
+        (onClick)="onAddClick()"
+      ></p-button>
+    </div>
 
-    <p-button
-      id="save"
-      label="Save"
-      styleClass="p-button-outlined"
-      (onClick)="onSaveClick()"
-    ></p-button>
+    <div class="flex justify-content-end flex-wrap">
+      <p-button
+        id="cancel"
+        label="Cancel"
+        styleClass="p-button-secondary p-button-text"
+        (onClick)="onCancelClick()"
+      ></p-button>
+
+      <p-button
+        id="save"
+        label="Save"
+        styleClass="p-button-outlined"
+        (onClick)="onSaveClick()"
+      ></p-button>
+    </div>
   </div>
 </section>

@@ -1,5 +1,7 @@
 <app-card title="Skills">
   <app-edit-actions
+    [addButtonOn]="true"
+    [addCallback]="onAddClick.bind(this)"
     [(editModeOn)]="editModeOn"
     [saveCallback]="onSaveClick.bind(this)"
   ></app-edit-actions>
@@ -8,11 +10,24 @@
       *ngFor="let item of skills; let i = index"
       class="flex flex-column justify-content-center align-items-center gap-3"
     >
-      <app-skill-item
-        [editModeOn]="editModeOn"
-        [skill]="item"
-        (formControlChange)="onSkillFormChange($event, i)"
-      ></app-skill-item>
+      <div
+        [ngClass]="{
+          'bg-red-50': editModeOn
+        }"
+      >
+        <p-button
+          *ngIf="editModeOn"
+          icon="pi pi-times"
+          (click)="onDeleteClick(item.id)"
+          styleClass="p-button-rounded p-button-danger p-button-text"
+        ></p-button>
+
+        <app-skill-item
+          [editModeOn]="editModeOn"
+          [skill]="item"
+          (formControlChange)="onSkillFormChange($event, i)"
+        ></app-skill-item>
+      </div>
     </div>
   </div>
 </app-card>

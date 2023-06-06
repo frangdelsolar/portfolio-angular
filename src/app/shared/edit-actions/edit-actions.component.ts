@@ -13,6 +13,8 @@ export class EditActionsComponent implements OnInit {
   @Output() editModeOnChange: EventEmitter<boolean> = new EventEmitter();
 
   @Input() saveCallback: Function = () => {};
+  @Input() addCallback: Function = () => {};
+  @Input() addButtonOn: boolean = false;
 
   constructor(private authSvc: AuthService) {}
 
@@ -20,6 +22,10 @@ export class EditActionsComponent implements OnInit {
     this.authSvc.isAuthenticatedObservable.subscribe((isAuth: boolean) => {
       this.isAuth = isAuth;
     });
+  }
+
+  onAddClick() {
+    this.addCallback();
   }
 
   onEditClick() {

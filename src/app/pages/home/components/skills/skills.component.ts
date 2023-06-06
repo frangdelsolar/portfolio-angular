@@ -18,6 +18,9 @@ export class SkillsComponent implements OnInit {
   form: FormGroup;
 
   skills: Skill[] = [];
+  addSkills: Skill[] = [];
+  deleteSkills: number[] = [];
+
   constructor(private fb: FormBuilder, private skillSvc: SkillService) {
     this.form = this.fb.group({
       skills: this.fb.array([]),
@@ -36,12 +39,30 @@ export class SkillsComponent implements OnInit {
       this.form.value.skills.forEach((skill: FormControl) => {
         data.push(skill.value);
       });
-      this.skillSvc.updateBulk({ skills: data }).subscribe((res) => {
-        console.log('success', res);
-      });
+      this.skillSvc
+        .updateBulk({
+          update: data,
+          delete: this.deleteSkills,
+          create: this.addSkills,
+        })
+        .subscribe((res) => {
+          this.deleteSkills.forEach((id: number) => {
+            let index = this.skills.findIndex(
+              (skill) => skill.id == id.toString()
+            );
+            this.skills.splice(index, 1);
+          });
+        });
     }
   }
+
   onSkillFormChange(event: FormControl, i: number) {
     this.form.controls['skills'].value[i] = event;
   }
+
+  onDeleteClick(id: any) {
+    this.deleteSkills.push(id);
+  }
+
+  onAddClick() {}
 }
