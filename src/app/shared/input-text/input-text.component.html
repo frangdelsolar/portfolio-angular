@@ -9,7 +9,8 @@
       class="w-10"
       [type]="type"
       pInputText
-      [formControl]="control"
+      [(ngModel)]="value"
+      (ngModelChange)="onChange($event)"
     />
     <label htmlFor="in-text">{{ label }}</label>
   </span>

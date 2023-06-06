@@ -20,4 +20,5 @@ export const environment = {
   apiPersonal: '',
   apiSocial: '',
   apiSkill: '',
+  apiSkillsBulkUpdate: '',
 };

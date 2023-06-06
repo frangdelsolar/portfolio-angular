@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <div class="flex flex-column gap-3 justify-content-center align-items-center">
+    <p-knob
+      [formControl]="levelControl"
+      [readonly]="!editModeOn"
+      [size]="50"
+      (onChange)="update()"
+    ></p-knob>
+    <div class="w-10">
+      <app-input-text
+        [editOn]="editModeOn"
+        [label]="''"
+        [control]="nameControl"
+        [type]="'text'"
+        (valueChange)="update()"
+      ></app-input-text>
+    </div>
+  </div>
+</form>

@@ -1,1 +1,18 @@
-<app-card title="Skills"></app-card>
+<app-card title="Skills">
+  <app-edit-actions
+    [(editModeOn)]="editModeOn"
+    [saveCallback]="onSaveClick.bind(this)"
+  ></app-edit-actions>
+  <div class="flex flex-row flex-wrap gap-4 justify-content-around pt-3">
+    <div
+      *ngFor="let item of skills; let i = index"
+      class="flex flex-column justify-content-center align-items-center gap-3"
+    >
+      <app-skill-item
+        [editModeOn]="editModeOn"
+        [skill]="item"
+        (formControlChange)="onSkillFormChange($event, i)"
+      ></app-skill-item>
+    </div>
+  </div>
+</app-card>

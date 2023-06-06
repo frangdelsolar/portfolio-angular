@@ -7,6 +7,7 @@ import { PrivateApiService } from '@services/private-api.service';
 })
 export class SkillService {
   _apiUrl = environment.apiUrl + environment.apiSkill;
+  _apiBulk = environment.apiUrl + environment.apiSkillsBulkUpdate;
 
   constructor(private privateSvc: PrivateApiService) {}
 
@@ -16,5 +17,9 @@ export class SkillService {
 
   public update(data: any) {
     return this.privateSvc.put(this._apiUrl, data, true);
+  }
+
+  public updateBulk(data: any) {
+    return this.privateSvc.put(this._apiBulk, data, true);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,17 @@ export class InputTextComponent implements OnInit {
   @Input() type: string = 'text';
   @Input() control: FormControl = new FormControl('', []);
 
+  value: string = '';
+  @Output() valueChange: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.value = this.control.value;
+  }
+
+  onChange(value: string) {
+    this.control.setValue(value);
+    this.valueChange.emit(this.control.value);
+  }
 }

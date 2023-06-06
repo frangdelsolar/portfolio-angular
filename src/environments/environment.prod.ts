@@ -20,4 +20,5 @@ export const environment = {
   apiPasswordReset: 'api/password_reset/',
   apiUrlUser: 'api/user/',
   apiSkill: 'api/skills/',
+  apiSkillsBulkUpdate: 'api/skills_bulk_update/',
 };
