@@ -13,6 +13,8 @@ export const environment = {
   apiUrl: '',
   apiAbout: '',
   apiContactMe: '',
+  apiEducation: '',
+  apiEducationBulk: '',
   apiExperience: '',
   apiExperienceBulk: '',
   apiUrlLogin: '',

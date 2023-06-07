@@ -1,1 +1,14 @@
-<app-card title="Academic Background"></app-card>
+<app-card title="Academic Background">
+  <app-edit-actions
+    [addButtonOn]="true"
+    [addCallback]="onAddClick.bind(this)"
+    [(editModeOn)]="editModeOn"
+    [saveCallback]="onSaveClick.bind(this)"
+  ></app-edit-actions>
+  <div class="flex flex-column gap-4">
+    <app-education-item
+      *ngFor="let item of education"
+      [item]="item"
+    ></app-education-item>
+  </div>
+</app-card>

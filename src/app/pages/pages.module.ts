@@ -7,6 +7,7 @@ import { AttachmentsComponent } from './home/components/attachments/attachments.
 import { BlogComponent } from './home/components/blog/blog.component';
 import { ContactComponent } from './home/components/contact/contact.component';
 import { EducationComponent } from './home/components/education/education.component';
+import { EducationItemComponent } from './home/components/education-item/education-item.component';
 import { ExperienceComponent } from './home/components/experience/experience.component';
 import { ExperienceItemComponent } from './home/components/experience-item/experience-item.component';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +26,7 @@ import { WorksComponent } from './home/components/works/works.component';
     BlogComponent,
     ContactComponent,
     EducationComponent,
+    EducationItemComponent,
     ExperienceComponent,
     ExperienceItemComponent,
     HomeComponent,
