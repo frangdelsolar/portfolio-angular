@@ -8,6 +8,7 @@ import { Image } from '@app/core/models/image.interface';
 })
 export class CardComponent implements OnInit {
   @Input() title: string;
+  @Input() subtitle: string;
   @Input() image: Image;
 
   constructor() {}

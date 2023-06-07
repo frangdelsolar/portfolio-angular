@@ -1,1 +1,18 @@
-<app-card title="Work Experience"></app-card>
+<app-card title="Work Experience">
+  <app-edit-actions
+    [addButtonOn]="true"
+    [addCallback]="onAddClick.bind(this)"
+    [(editModeOn)]="editModeOn"
+    [saveCallback]="onSaveClick.bind(this)"
+  ></app-edit-actions>
+  <p-tabView [(activeIndex)]="activeIndex" [scrollable]="true">
+    <p-tabPanel *ngFor="let category of categories" [header]="category.label">
+      <div class="flex flex-column gap-4">
+        <app-experience-item
+          *ngFor="let experience of category.experiences"
+          [experience]="experience"
+        ></app-experience-item>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</app-card>

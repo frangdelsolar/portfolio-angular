@@ -8,6 +8,7 @@ import { BlogComponent } from './home/components/blog/blog.component';
 import { ContactComponent } from './home/components/contact/contact.component';
 import { EducationComponent } from './home/components/education/education.component';
 import { ExperienceComponent } from './home/components/experience/experience.component';
+import { ExperienceItemComponent } from './home/components/experience-item/experience-item.component';
 import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './auth/components/login-form/login-form.component';
 import { PasswordResetComponent } from './auth/components/password-reset/password-reset.component';
@@ -25,6 +26,7 @@ import { WorksComponent } from './home/components/works/works.component';
     ContactComponent,
     EducationComponent,
     ExperienceComponent,
+    ExperienceItemComponent,
     HomeComponent,
     LoginFormComponent,
     PasswordResetComponent,

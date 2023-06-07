@@ -14,6 +14,8 @@ export const environment = {
   apiAbout: 'api/about/',
   apiAttachment: 'api/attachments/',
   apiContactMe: 'mail/',
+  apiExperience: 'api/experiences/',
+  apiExperienceBulk: 'api/experiences_bulk/',
   apiPersonal: 'api/personal/',
   apiSocial: 'api/social/',
   apiUrlLogin: 'api/token/',

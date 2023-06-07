@@ -1,0 +1,32 @@
+<div class="flex flex-wrap flex-row gap-5">
+  <div class="flex flex-column col-3">
+    <h4>{{ dates }}</h4>
+  </div>
+  <div class="flex flex-column col-8">
+    <h3 class="py-0 my-0">{{ experience.title }}</h3>
+    <h4 class="py-0 my-0 text-500 font-medium">
+      {{ experience.company }} - {{ experience.city }}, {{ experience.country }}
+    </h4>
+
+    <div class="pt-3">
+      <p-panel
+        header="Description"
+        [toggleable]="true"
+        [collapsed]="true"
+        [toggler]="'header'"
+      >
+        <div
+          class="text-sm line-height-2"
+          [innerHtml]="experience.description"
+        ></div>
+      </p-panel>
+    </div>
+
+    <div
+      *ngIf="experience.tags.length > 0"
+      class="flex flex-row flex-wrap gap-3 pt-3"
+    >
+      <app-tag *ngFor="let tag of experience.tags" [value]="tag.name"></app-tag>
+    </div>
+  </div>
+</div>

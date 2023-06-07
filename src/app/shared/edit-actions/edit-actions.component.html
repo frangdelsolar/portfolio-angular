@@ -1,5 +1,5 @@
-<section *ngIf="isAuth" id="actions">
-  <div *ngIf="!editModeOn" class="flex justify-content-end flex-wrap">
+<section *ngIf="isAuth" id="actions" class="py-2 bg-gray-100 border-round-xl">
+  <div *ngIf="!editModeOn" class="flex justify-content-end mx-3 flex-wrap">
     <p-button
       id="edit"
       label="Edit"
@@ -10,7 +10,7 @@
 
   <div
     *ngIf="editModeOn"
-    class="flex flex-row flex-wrap justify-content-between"
+    class="flex flex-row flex-wrap justify-content-between mx-3"
   >
     <div>
       <p-button
