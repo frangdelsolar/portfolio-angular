@@ -10,11 +10,5 @@ export class TabMenuComponent implements OnInit {
   @Input() items: MenuItem[];
   @Input() activeItem: MenuItem;
 
-  ngOnInit() {
-    console.log(this.activeItem);
-  }
-
-  onActiveItemChange(event: any) {
-    console.log('change');
-  }
+  ngOnInit() {}
 }

@@ -21,18 +21,12 @@ export class ToolbarComponent implements OnInit {
     private authSvc: AuthService,
     private dialogSvc: AppDialogService,
     private toastSvc: ToastService
-  ) {}
-
-  ngOnInit() {
-    this.authSvc.isAuthenticatedObservable.subscribe((isAuth: any) => {
-      this.isAuth = isAuth;
-    });
-
+  ) {
     this.items = [
       {
         label: 'Resume',
         icon: 'pi pi-fw pi-file',
-        routerLink: [''],
+        routerLink: ['/resume'],
       },
       {
         label: 'Works',
@@ -50,6 +44,19 @@ export class ToolbarComponent implements OnInit {
         routerLink: ['/contact'],
       },
     ];
+
+    this.activeItem = this.items[0];
+  }
+
+  ngOnInit() {
+    this.authSvc.isAuthenticatedObservable.subscribe((isAuth: any) => {
+      this.isAuth = isAuth;
+    });
+  }
+
+  onTabClick(event: any) {
+    this.activeItem = this.items[3];
+    console.log(this.activeItem);
   }
 
   login() {

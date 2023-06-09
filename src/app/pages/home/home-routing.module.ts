@@ -13,9 +13,9 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'resume',
+        path: '',
+        redirectTo: '/resume',
         pathMatch: 'full',
-        component: ResumeComponent,
       },
       {
         path: 'works',
@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: 'contact',
         component: ContactComponent,
+      },
+      {
+        path: 'resume',
+        component: ResumeComponent,
       },
     ],
   },

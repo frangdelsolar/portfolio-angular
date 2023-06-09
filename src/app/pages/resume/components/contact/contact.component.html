@@ -1,46 +1,48 @@
 <app-card title="Contact Me">
   <div class="flex flex-column flex-wrap gap-5 pt-1">
     <form [formGroup]="form" (ngSubmit)="onSendForm()">
-      <div class="flex-auto">
-        <label for="name" class="block font-bold mb-2">Name</label>
-        <input
-          pInputText
-          inputId="name"
-          type="'text"
-          class="w-10"
-          [formControl]="controlName"
-        />
-      </div>
-      <div class="flex-auto pt-2">
-        <label for="email" class="block font-bold mb-2">Email</label>
-        <input
-          pInputText
-          inputId="email"
-          type="'email"
-          class="w-10"
-          [formControl]="controlEmail"
-        />
-      </div>
-      <div class="flex-auto pt-2">
-        <label for="message" class="block font-bold mb-2">Message</label>
-        <textarea
-          id="message"
-          rows="5"
-          cols="30"
-          [autoResize]="true"
-          pInputTextarea
-          [formControl]="controlMsg"
-        ></textarea>
-        <div class="pt-3 justify-content-right">
-          <button
-            pButton
-            pRibpple
-            class="p-button"
-            type="submit"
-            [loading]="buttonProcessing"
-          >
-            Send
-          </button>
+      <div class="flex flex-column">
+        <div class="flex-auto">
+          <label for="name" class="block font-bold mb-2">Name</label>
+          <input
+            pInputText
+            inputId="name"
+            type="'text"
+            class="w-full"
+            [formControl]="controlName"
+          />
+        </div>
+        <div class="flex-auto pt-2">
+          <label for="email" class="block font-bold mb-2">Email</label>
+          <input
+            pInputText
+            inputId="email"
+            type="'email"
+            class="w-full"
+            [formControl]="controlEmail"
+          />
+        </div>
+        <div class="flex-auto pt-2">
+          <label for="message" class="block font-bold mb-2">Message</label>
+          <textarea
+            id="message"
+            rows="5"
+            class="w-full"
+            [autoResize]="true"
+            pInputTextarea
+            [formControl]="controlMsg"
+          ></textarea>
+          <div class="pt-3 justify-content-right">
+            <button
+              pButton
+              pRibpple
+              class="p-button"
+              type="submit"
+              [loading]="buttonProcessing"
+            >
+              Send
+            </button>
+          </div>
         </div>
       </div>
     </form>

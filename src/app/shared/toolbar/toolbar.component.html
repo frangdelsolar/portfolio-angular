@@ -1,6 +1,7 @@
 <app-card>
-  <div class="container">
-    <app-tab-menu [items]="items" [activeItem]="activeItem"></app-tab-menu>
+  <div
+    class="flex flex-wrap flex-row-reverse justify-content-between align-items-center"
+  >
     <div class="actions">
       <p-button
         *ngIf="!isAuth"
@@ -18,5 +19,7 @@
         styleClass="p-button-sm p-button-text p-button-danger"
       ></p-button>
     </div>
+
+    <app-tab-menu [items]="items" [activeItem]="activeItem"></app-tab-menu>
   </div>
 </app-card>
