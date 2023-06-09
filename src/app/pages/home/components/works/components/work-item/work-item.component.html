@@ -1,0 +1,121 @@
+<div class="grid justify-content-center">
+  <div class="w-10 flex flex-column justify-content-center gap-2">
+    <app-edit-actions
+      [(editModeOn)]="editModeOn"
+      [saveCallback]="onSaveClick.bind(this)"
+    ></app-edit-actions>
+
+    <img
+      [src]="item.image.image_url"
+      [alt]="item.image.description"
+      style="width: 80%; align-self: center"
+    />
+
+    <app-input-text-custom
+      [editOn]="editModeOn"
+      [label]="'Title'"
+      [control]="titleControl"
+    >
+      <h1 class="mb-1 pb-1">{{ titleControl.value }}</h1>
+    </app-input-text-custom>
+
+    <app-input-text-area
+      [editOn]="editModeOn"
+      [label]="'Summary'"
+      [control]="previewControl"
+    >
+      <p class="text-sm">{{ previewControl.value }}</p>
+    </app-input-text-area>
+    <section>
+      <div class="flex flex-row justify-content-center align-items-center">
+        <div class="flex flex-column col-6">
+          <div class="flex flex-row align-items-center justify-content-center">
+            <div class="col-2 flex align-items-center justify-content-center">
+              <i class="pi pi-globe" style="font-size: 2rem"></i>
+            </div>
+            <div class="col-10">
+              <app-input-text
+                [editOn]="editModeOn"
+                [label]="'Client'"
+                [control]="clientControl"
+                [type]="'text'"
+              ></app-input-text>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <div class="col-2 flex align-items-center justify-content-center">
+              <i class="pi pi-link" style="font-size: 2rem"></i>
+            </div>
+            <div class="col-10">
+              <app-input-text
+                [editOn]="editModeOn"
+                [label]="'Url'"
+                [control]="urlControl"
+                [type]="'text'"
+              ></app-input-text>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <div class="col-2 flex align-items-center justify-content-center">
+              <i class="pi pi-bolt" style="font-size: 2rem"></i>
+            </div>
+            <div class="col-10">
+              <app-input-text
+                [editOn]="editModeOn"
+                [label]="'Technologies'"
+                [control]="technologiesControl"
+                [type]="'text'"
+              ></app-input-text>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column col-6">
+          <div class="flex flex-row align-items-center justify-content-center">
+            <div class="col-2 flex align-items-center justify-content-center">
+              <i class="pi pi-box" style="font-size: 2rem"></i>
+            </div>
+            <div class="col-10">
+              <app-input-text
+                [editOn]="editModeOn"
+                [control]="projectControl"
+                [label]="'Project'"
+                [type]="'text'"
+              ></app-input-text>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <div class="col-2 flex align-items-center justify-content-center">
+              <i class="pi pi-calendar" style="font-size: 2rem"></i>
+            </div>
+            <div class="col-10">
+              <app-input-text
+                [editOn]="editModeOn"
+                [label]="'Start date'"
+                [control]="startDateControl"
+                [type]="'text'"
+              ></app-input-text>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <div class="col-2 flex align-items-center justify-content-center">
+              <i class="pi pi-github" style="font-size: 2rem"></i>
+            </div>
+            <div class="col-10">
+              <app-input-text
+                [editOn]="editModeOn"
+                [label]="'Repository'"
+                [control]="repositoryControl"
+                [type]="'text'"
+              ></app-input-text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div *ngIf="!editModeOn" [innerHtml]="contentControl.value"></div>
+    <app-input-editor
+      *ngIf="editModeOn"
+      [control]="contentControl"
+    ></app-input-editor>
+  </div>
+</div>

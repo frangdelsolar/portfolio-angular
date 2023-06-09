@@ -25,4 +25,5 @@ export const environment = {
   apiUrlUser: 'api/user/',
   apiSkill: 'api/skills/',
   apiSkillsBulkUpdate: 'api/skills_bulk_update/',
+  apiWork: 'api/works/',
 };

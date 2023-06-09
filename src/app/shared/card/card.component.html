@@ -1,6 +1,6 @@
 <p-card header="{{ title }}" subheader="{{ subtitle }}">
   <ng-template *ngIf="image" pTemplate="header">
-    <img [alt]="image.alt" [src]="image.url" />
+    <img [alt]="image.description" [src]="image.image_url" />
   </ng-template>
   <ng-content></ng-content>
 </p-card>

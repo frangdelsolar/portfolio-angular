@@ -1,5 +1,7 @@
 export interface Image {
-  url?: string;
+  id?: number;
+  image_url?: string;
+  thumbnail_url?: string;
   name?: string;
-  alt?: string;
+  description?: string;
 }

@@ -16,8 +16,9 @@ import { PersonalService } from '@app/core/controllers/personal.controller';
 export class PersonalDetailsComponent implements OnInit {
   title: string = 'Personal Details';
   image: Image = {
-    alt: 'Placeholder',
-    url: 'https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg',
+    description: 'Placeholder',
+    image_url:
+      'https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg',
   };
 
   editModeOn: boolean = false;
@@ -44,10 +45,7 @@ export class PersonalDetailsComponent implements OnInit {
     this.personalSvc.get().subscribe((response: any) => {
       if (response) {
         this.form.patchValue(response);
-        this.image = {
-          alt: response.profile_picture.name,
-          url: response.profile_picture.image_url,
-        };
+        this.image = response.profile_picture;
       }
     });
   }

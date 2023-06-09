@@ -25,7 +25,9 @@ import { CardComponent } from './card/card.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { EditActionsComponent } from './edit-actions/edit-actions.component';
 import { InputEditorComponent } from './input-editor/input-editor.component';
+import { InputTextAreaComponent } from './input-text-area/input-text-area.component';
 import { InputTextComponent } from './input-text/input-text.component';
+import { InputTextCustomComponent } from './input-text-custom/input-text-custom.component';
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { TagComponent } from './tag/tag.component';
 import { ToastComponent } from './toast/toast.component';
@@ -59,7 +61,9 @@ const uiComponents = [
   DialogComponent,
   EditActionsComponent,
   InputEditorComponent,
+  InputTextAreaComponent,
   InputTextComponent,
+  InputTextCustomComponent,
   TabMenuComponent,
   TagComponent,
   ToastComponent,

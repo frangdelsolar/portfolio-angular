@@ -7,7 +7,12 @@ import { DialogData } from '@models/dialog.interface';
 })
 export class AppDialogService {
   private DataObservable: BehaviorSubject<DialogData> =
-    new BehaviorSubject<DialogData>({ component: null, params: {} });
+    new BehaviorSubject<DialogData>({
+      component: null,
+      data: null,
+      params: {},
+    });
+
   private ShowObservable: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 

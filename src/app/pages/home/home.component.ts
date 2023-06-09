@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  activeTab: string = 'Resume';
+  activeTab: string = 'Works';
   constructor() {}
 
   ngOnInit(): void {}

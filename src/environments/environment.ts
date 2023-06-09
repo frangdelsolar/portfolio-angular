@@ -25,4 +25,5 @@ export const environment = {
   apiSocial: '',
   apiSkill: '',
   apiSkillsBulkUpdate: '',
+  apiWork: '',
 };

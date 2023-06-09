@@ -18,6 +18,9 @@ import { SocialMediaComponent } from './home/components/social-media/social-medi
 import { SkillsComponent } from './home/components/skills/skills.component';
 import { SkillItemComponent } from './home/components/skill-item/skill-item.component';
 import { WorksComponent } from './home/components/works/works.component';
+import { WorkListComponent } from './home/components/works/components/work-list/work-list.component';
+import { WorkItemComponent } from './home/components/works/components/work-item/work-item.component';
+import { WorkPreviewComponent } from './home/components/works/components/work-preview/work-preview.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { WorksComponent } from './home/components/works/works.component';
     SkillsComponent,
     SkillItemComponent,
     WorksComponent,
+    WorkListComponent,
+    WorkItemComponent,
+    WorkPreviewComponent,
   ],
   imports: [CommonModule, SharedModule],
 })

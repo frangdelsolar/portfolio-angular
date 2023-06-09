@@ -1,8 +1,7 @@
 <div *ngIf="!editOn">
-  <h3 class="py-0 my-0 font-normal text-base">{{ label }}</h3>
-  <p class="py-0 my-0 font-bold text-lg">{{ control.value || "N/A" }}</p>
+  <ng-content></ng-content>
 </div>
-<div *ngIf="editOn">
+<div *ngIf="editOn" class="my-3">
   <span class="p-float-label mb-2">
     <input
       id="in-text"

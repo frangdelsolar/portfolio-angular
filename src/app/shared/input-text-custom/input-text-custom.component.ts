@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.scss'],
+  selector: 'app-input-text-custom',
+  templateUrl: './input-text-custom.component.html',
+  styleUrls: ['./input-text-custom.component.scss'],
 })
-export class InputTextComponent implements OnInit {
+export class InputTextCustomComponent implements OnInit {
   @Input() editOn: boolean = false;
   @Input() label: string = 'Text';
   @Input() type: string = 'text';
