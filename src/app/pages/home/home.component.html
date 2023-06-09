@@ -7,35 +7,12 @@
         <app-attachments></app-attachments>
         <app-contact></app-contact>
       </div>
-      <div class="flex flex-column gap-3 sm:col-11 md:col-8">
-        <app-toolbar [(activeTab)]="activeTab"></app-toolbar>
+      <div class="flex flex-column gap-2 sm:col-11 md:col-8">
+        <app-toolbar></app-toolbar>
 
-        <ng-template [ngIf]="activeTab == 'Resume'">
-          <section id="resume" class="flex flex-column gap-3">
-            <app-about></app-about>
-            <app-skills></app-skills>
-            <app-experience></app-experience>
-            <app-education></app-education>
-          </section>
-        </ng-template>
-
-        <ng-template [ngIf]="activeTab == 'Works'">
-          <section id="works">
-            <app-works></app-works>
-          </section>
-        </ng-template>
-
-        <ng-template [ngIf]="activeTab == 'Blog'">
-          <section id="blog">
-            <app-blog></app-blog>
-          </section>
-        </ng-template>
-
-        <ng-template [ngIf]="activeTab == 'Contact'">
-          <section id="contact">
-            <app-contact></app-contact>
-          </section>
-        </ng-template>
+        <router-outlet>
+          <app-resume></app-resume>
+        </router-outlet>
       </div>
     </div>
   </div>

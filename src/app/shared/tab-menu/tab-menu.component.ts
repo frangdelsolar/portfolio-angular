@@ -8,21 +8,13 @@ import { MenuItem } from 'primeng/api';
 })
 export class TabMenuComponent implements OnInit {
   @Input() items: MenuItem[];
-
-  activeItem: MenuItem;
+  @Input() activeItem: MenuItem;
 
   ngOnInit() {
-    if (this.items.length > 0) {
-      this.activeItem = this.items[0];
-    }
+    console.log(this.activeItem);
   }
 
   onActiveItemChange(event: any) {
-    console.log(event);
-    this.activeItem = event;
-  }
-
-  activateLast() {
-    this.activeItem = this.items[this.items.length - 1];
+    console.log('change');
   }
 }

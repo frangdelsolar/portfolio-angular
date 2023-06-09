@@ -11,7 +11,6 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
-  @Input() activeTab: string = 'Resume';
   @Output() activeTabChange: EventEmitter<string> = new EventEmitter();
 
   items: MenuItem[];
@@ -33,22 +32,24 @@ export class ToolbarComponent implements OnInit {
       {
         label: 'Resume',
         icon: 'pi pi-fw pi-file',
+        routerLink: [''],
       },
       {
         label: 'Works',
         icon: 'pi pi-fw pi-briefcase',
+        routerLink: ['/works'],
       },
       {
         label: 'Blog',
         icon: 'pi pi-fw pi-book',
+        routerLink: ['/blog'],
       },
       {
         label: 'Contact',
         icon: 'pi pi-fw pi-envelope',
+        routerLink: ['/contact'],
       },
     ];
-
-    this.activeItem = this.items[0];
   }
 
   login() {
@@ -72,9 +73,5 @@ export class ToolbarComponent implements OnInit {
       summary: 'Log out',
       detail: 'Success',
     });
-  }
-
-  onActiveItemChange(event: any) {
-    this.activeItem = event;
   }
 }
