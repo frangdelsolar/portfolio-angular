@@ -19,6 +19,7 @@ export const environment = {
   apiExperience: 'api/experiences/',
   apiExperienceBulk: 'api/experiences_bulk/',
   apiPersonal: 'api/personal/',
+  apiPost: 'api/posts/',
   apiSocial: 'api/social/',
   apiUrlLogin: 'api/token/',
   apiPasswordReset: 'api/password_reset/',

@@ -22,6 +22,7 @@ export const environment = {
   apiUrlUser: '',
   apiAttachment: '',
   apiPersonal: '',
+  apiPost: '',
   apiSocial: '',
   apiSkill: '',
   apiSkillsBulkUpdate: '',

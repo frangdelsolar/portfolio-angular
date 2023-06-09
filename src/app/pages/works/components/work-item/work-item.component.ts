@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { WorkService } from '@app/core/controllers/work.controller';
 import { Work } from '@app/core/models/work.interface';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
 
@@ -21,15 +22,19 @@ export class WorkItemComponent implements OnInit {
   form: FormGroup;
   clientControl = new FormControl('', [Validators.required]);
   contentControl = new FormControl('', [Validators.required]);
-  previewControl = new FormControl('', [Validators.required, Validators.email]);
+  previewControl = new FormControl('', [Validators.required]);
   projectControl = new FormControl('', [Validators.required]);
-  repositoryControl = new FormControl('', [Validators.required]);
+  repositoryControl = new FormControl('', []);
   startDateControl = new FormControl('', [Validators.required]);
-  technologiesControl = new FormControl('', [Validators.required]);
+  technologiesControl = new FormControl('', []);
   titleControl = new FormControl('', [Validators.required]);
-  urlControl = new FormControl('', [Validators.required]);
+  urlControl = new FormControl('', []);
 
-  constructor(private dialogSvc: AppDialogService, private fb: FormBuilder) {}
+  constructor(
+    private dialogSvc: AppDialogService,
+    private fb: FormBuilder,
+    private workSvc: WorkService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -50,5 +55,11 @@ export class WorkItemComponent implements OnInit {
     });
   }
 
-  onSaveClick() {}
+  onSaveClick() {
+    if (this.form.valid) {
+      this.workSvc.update(this.item.id, this.form.value).subscribe((res) => {
+        console.log(res);
+      });
+    }
+  }
 }

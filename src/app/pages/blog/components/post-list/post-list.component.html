@@ -1,0 +1,9 @@
+<div class="flex flex-row flex-wrap gap-1">
+  <div
+    *ngFor="let item of items"
+    class="flex flex-column col-4"
+    (click)="open(item)"
+  >
+    <app-post-preview [item]="item"> </app-post-preview>
+  </div>
+</div>

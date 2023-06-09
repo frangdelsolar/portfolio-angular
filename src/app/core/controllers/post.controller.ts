@@ -5,8 +5,8 @@ import { PrivateApiService } from '@services/private-api.service';
 @Injectable({
   providedIn: 'root',
 })
-export class WorkService {
-  _apiUrl = environment.apiUrl + environment.apiWork;
+export class PostService {
+  _apiUrl = environment.apiUrl + environment.apiPost;
 
   constructor(private privateSvc: PrivateApiService) {}
 

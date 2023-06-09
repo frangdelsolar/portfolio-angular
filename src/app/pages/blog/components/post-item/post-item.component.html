@@ -1,0 +1,36 @@
+<div class="grid justify-content-center">
+  <div class="w-10 flex flex-column justify-content-center gap-2">
+    <app-edit-actions
+      [(editModeOn)]="editModeOn"
+      [saveCallback]="onSaveClick.bind(this)"
+    ></app-edit-actions>
+
+    <img
+      [src]="item.image.image_url"
+      [alt]="item.image.description"
+      style="width: 80%; align-self: center"
+    />
+
+    <app-input-text-custom
+      [editOn]="editModeOn"
+      [label]="'Title'"
+      [control]="titleControl"
+    >
+      <h1 class="mb-1 pb-1">{{ titleControl.value }}</h1>
+    </app-input-text-custom>
+
+    <app-input-text-area
+      [editOn]="editModeOn"
+      [label]="'Summary'"
+      [control]="previewControl"
+    >
+      <p class="text-sm">{{ previewControl.value }}</p>
+    </app-input-text-area>
+
+    <div *ngIf="!editModeOn" [innerHtml]="contentControl.value"></div>
+    <app-input-editor
+      *ngIf="editModeOn"
+      [control]="contentControl"
+    ></app-input-editor>
+  </div>
+</div>
