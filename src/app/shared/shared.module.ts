@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { BlockUIModule } from 'primeng/blockui';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { DividerModule } from 'primeng/divider';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ImageModule } from 'primeng/image';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { KnobModule } from 'primeng/knob';
@@ -25,6 +28,7 @@ import { CardComponent } from './card/card.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { EditActionsComponent } from './edit-actions/edit-actions.component';
 import { InputEditorComponent } from './input-editor/input-editor.component';
+import { InputImageComponent } from './input-image/input-image.component';
 import { InputTextAreaComponent } from './input-text-area/input-text-area.component';
 import { InputTextComponent } from './input-text/input-text.component';
 import { InputTextCustomComponent } from './input-text-custom/input-text-custom.component';
@@ -34,12 +38,15 @@ import { ToastComponent } from './toast/toast.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 const pngModules = [
+  BlockUIModule,
   ButtonModule,
   CardModule,
   CKEditorModule,
   DividerModule,
   DynamicDialogModule,
+  FileUploadModule,
   FormsModule,
+  ImageModule,
   InputTextareaModule,
   InputTextModule,
   KnobModule,
@@ -60,6 +67,7 @@ const uiComponents = [
   CardComponent,
   DialogComponent,
   EditActionsComponent,
+  InputImageComponent,
   InputEditorComponent,
   InputTextAreaComponent,
   InputTextComponent,

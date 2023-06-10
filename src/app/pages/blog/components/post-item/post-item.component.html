@@ -5,11 +5,10 @@
       [saveCallback]="onSaveClick.bind(this)"
     ></app-edit-actions>
 
-    <img
-      [src]="item.image.image_url"
-      [alt]="item.image.description"
-      style="width: 80%; align-self: center"
-    />
+    <div style="width: 80%; align-self: center">
+      <app-input-image [editModeOn]="editModeOn" [item]="item.image">
+      </app-input-image>
+    </div>
 
     <app-input-text-custom
       [editOn]="editModeOn"

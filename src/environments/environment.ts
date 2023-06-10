@@ -17,6 +17,7 @@ export const environment = {
   apiEducationBulk: '',
   apiExperience: '',
   apiExperienceBulk: '',
+  apiImage: '',
   apiUrlLogin: '',
   apiPasswordReset: '',
   apiUrlUser: '',

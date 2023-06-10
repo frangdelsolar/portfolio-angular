@@ -18,6 +18,7 @@ export const environment = {
   apiEducationBulk: 'api/education_bulk/',
   apiExperience: 'api/experiences/',
   apiExperienceBulk: 'api/experiences_bulk/',
+  apiImage: 'api/images/',
   apiPersonal: 'api/personal/',
   apiPost: 'api/posts/',
   apiSocial: 'api/social/',
