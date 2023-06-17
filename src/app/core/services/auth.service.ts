@@ -3,13 +3,6 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-import {
-  getAuth,
-  getRedirectResult,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  updateProfile,
-} from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { PrivateApiService } from './private-api.service';
 import { BehaviorSubject, Observable } from 'rxjs';
