@@ -56,7 +56,6 @@ export class ToolbarComponent implements OnInit {
 
   onTabClick(event: any) {
     this.activeItem = this.items[3];
-    console.log(this.activeItem);
   }
 
   login() {

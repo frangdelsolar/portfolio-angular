@@ -1,31 +1,38 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ButtonModule } from 'primeng/button';
-
+import { of } from 'rxjs';
 import { EditActionsComponent } from './edit-actions.component';
+import { AuthService } from '@app/core/services/auth.service';
+
+const mockAuthService = {
+  isAuthenticatedObservable: of(true),
+};
 
 describe('EditActionsComponent', () => {
   let component: EditActionsComponent;
   let fixture: ComponentFixture<EditActionsComponent>;
+  let authService: AuthService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [EditActionsComponent],
-      imports: [ButtonModule],
+      providers: [{ provide: AuthService, useValue: mockAuthService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(EditActionsComponent);
+    authService = TestBed.inject(AuthService);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should change editMode onEditClick', () => {
-    component.editModeOn = false;
+  it('should emit editModeOn as true when onEditClick is called', () => {
+    spyOn(component.editModeOnChange, 'emit');
+
     component.onEditClick();
-    fixture.detectChanges();
-    expect(component.editModeOn).toBeTruthy();
+
+    expect(component.editModeOn).toBe(true);
+    expect(component.editModeOnChange.emit).toHaveBeenCalledWith(true);
   });
 });

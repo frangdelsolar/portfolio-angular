@@ -25,6 +25,7 @@ import { WorksComponent } from './works/works.component';
 import { WorkListComponent } from './works/components/work-list/work-list.component';
 import { WorkItemComponent } from './works/components/work-item/work-item.component';
 import { WorkPreviewComponent } from './works/components/work-preview/work-preview.component';
+import { PasswordNewComponent } from './auth/components/password-new/password-new.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { WorkPreviewComponent } from './works/components/work-preview/work-previ
     ExperienceItemComponent,
     HomeComponent,
     LoginFormComponent,
+    PasswordNewComponent,
     PasswordResetComponent,
     PersonalDetailsComponent,
     PostItemComponent,

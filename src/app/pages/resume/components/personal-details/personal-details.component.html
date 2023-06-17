@@ -12,7 +12,7 @@
       <div class="col-10">
         <div *ngIf="!editModeOn">
           <h3 class="py-0 my-0 font-normal text-base">Name</h3>
-          <p class="py-0 my-0 font-bold text-lg">
+          <p id="fullName" class="py-0 my-0 font-bold text-lg">
             {{ firstNameControl.value }} {{ lastNameControl.value }}
           </p>
         </div>
@@ -71,7 +71,7 @@
       <div class="col-10">
         <div *ngIf="!editModeOn">
           <h3 class="py-0 my-0 font-normal text-base">Location</h3>
-          <p class="py-0 my-0 font-bold text-lg">
+          <p id="location" class="py-0 my-0 font-bold text-lg">
             {{ cityControl.value }}, {{ countryControl.value }}
           </p>
         </div>

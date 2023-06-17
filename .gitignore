@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 *.local.ts
-*.prod.ts
+environment.prod.ts
