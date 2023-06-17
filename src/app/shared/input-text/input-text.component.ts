@@ -18,7 +18,9 @@ export class InputTextComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.value = this.control.value;
+    this.control.valueChanges.subscribe((value) => {
+      this.value = value;
+    });
   }
 
   onChange(value: string) {

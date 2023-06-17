@@ -26,7 +26,6 @@ export class AboutComponent implements OnInit {
 
   onSaveClick() {
     if (this.form.valid) {
-      console.log(this.form.value);
       this.aboutSvc.update(this.form.value).subscribe((response: any) => {
         if (response) {
           this.form.patchValue(response);

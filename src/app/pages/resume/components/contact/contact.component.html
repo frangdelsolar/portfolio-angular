@@ -7,9 +7,9 @@
           <input
             pInputText
             inputId="name"
-            type="'text"
+            type="text"
             class="w-full"
-            [formControl]="controlName"
+            formControlName="name"
           />
         </div>
         <div class="flex-auto pt-2">
@@ -17,9 +17,9 @@
           <input
             pInputText
             inputId="email"
-            type="'email"
+            type="email"
             class="w-full"
-            [formControl]="controlEmail"
+            formControlName="email"
           />
         </div>
         <div class="flex-auto pt-2">
@@ -30,7 +30,7 @@
             class="w-full"
             [autoResize]="true"
             pInputTextarea
-            [formControl]="controlMsg"
+            formControlName="message"
           ></textarea>
           <div class="pt-3 justify-content-right">
             <button
