@@ -12,19 +12,7 @@ export class InputTextComponent implements OnInit {
   @Input() type: string = 'text';
   @Input() control: FormControl = new FormControl('', []);
 
-  value: any;
-  @Output() valueChange: EventEmitter<any> = new EventEmitter();
-
   constructor() {}
 
-  ngOnInit(): void {
-    this.control.valueChanges.subscribe((value) => {
-      this.value = value;
-    });
-  }
-
-  onChange(value: string) {
-    this.control.setValue(value);
-    this.valueChange.emit(this.control.value);
-  }
+  ngOnInit(): void {}
 }

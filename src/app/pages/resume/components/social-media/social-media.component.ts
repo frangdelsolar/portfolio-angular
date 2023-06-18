@@ -26,9 +26,11 @@ export class SocialMediaComponent implements OnInit {
       github: this.githubControl,
       linkedin: this.linkedinControl,
     });
-
     this.socialSvc.get().subscribe((data: any) => {
-      this.form.patchValue(data);
+      if (data) {
+        this.githubControl.setValue(data.github);
+        this.linkedinControl.setValue(data.linkedin);
+      }
     });
   }
 

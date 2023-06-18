@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, NgControl } from '@angular/forms';
 import { InputTextComponent } from './input-text.component';
+import { InputTextModule } from 'primeng/inputtext';
+
+const mockNgControl = {
+  control: new FormControl(),
+};
 
 describe('InputTextComponent', () => {
   let component: InputTextComponent;
@@ -9,7 +14,8 @@ describe('InputTextComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InputTextComponent],
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, InputTextModule],
+      providers: [{ provider: NgControl, useValue: mockNgControl }], // Add NgControl as a provider
     }).compileComponents();
   });
 
@@ -38,5 +44,14 @@ describe('InputTextComponent', () => {
 
     expect(component.valueChange.emit).toHaveBeenCalledWith(newValue);
     expect(component.value).toBe(newValue);
+  });
+
+  it('should show label when editOn is false', () => {
+    component.label = 'Label';
+    component.editOn = false;
+    fixture.detectChanges();
+    const label = fixture.nativeElement.querySelector('#label');
+    expect(label).toBeTruthy();
+    expect(label.textContent).toBe(component.label);
   });
 });

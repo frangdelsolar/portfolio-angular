@@ -1,6 +1,8 @@
 <div *ngIf="!editOn">
-  <h3 class="py-0 my-0 font-normal text-base">{{ label }}</h3>
-  <p class="py-0 my-0 font-bold text-lg">{{ control.value || "N/A" }}</p>
+  <h3 id="label" class="py-0 my-0 font-normal text-base">{{ label }}</h3>
+  <p id="value" class="py-0 my-0 font-bold text-lg">
+    {{ control.value || "N/A" }}
+  </p>
 </div>
 <div *ngIf="editOn">
   <span class="p-float-label mb-2">
@@ -9,8 +11,7 @@
       class="w-10"
       [type]="type"
       pInputText
-      [(ngModel)]="value"
-      (ngModelChange)="onChange($event)"
+      [formControl]="control"
     />
     <label htmlFor="in-text">{{ label }}</label>
   </span>
