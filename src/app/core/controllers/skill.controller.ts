@@ -15,11 +15,20 @@ export class SkillService {
     return this.privateSvc.get(this._apiUrl, null, false);
   }
 
+  public create(data: any) {
+    return this.privateSvc.post(this._apiUrl, data, true);
+  }
+
   public update(data: any) {
     return this.privateSvc.put(this._apiUrl, data, true);
   }
 
   public updateBulk(data: any) {
     return this.privateSvc.put(this._apiBulk, data, true);
+  }
+
+  public delete(id: string) {
+    const url = this._apiUrl + id;
+    return this.privateSvc.delete(url, true);
   }
 }

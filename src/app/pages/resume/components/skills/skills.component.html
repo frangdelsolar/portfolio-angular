@@ -1,33 +1,28 @@
 <app-card title="Skills">
   <app-edit-actions
-    [addButtonOn]="false"
+    [addButtonOn]="true"
     [addCallback]="onAddClick.bind(this)"
     [(editModeOn)]="editModeOn"
     [saveCallback]="onSaveClick.bind(this)"
   ></app-edit-actions>
   <div class="flex flex-row flex-wrap gap-4 justify-content-around pt-3">
-    <div
-      *ngFor="let item of skills; let i = index"
-      class="flex flex-column justify-content-center align-items-center gap-3"
-    >
-      <div
-        [ngClass]="{
-          'bg-red-50': editModeOn
-        }"
-      >
-        <p-button
-          *ngIf="editModeOn"
-          icon="pi pi-times"
-          (click)="onDeleteClick(item.id)"
-          styleClass="p-button-rounded p-button-danger p-button-text"
-        ></p-button>
-
-        <app-skill-item
-          [editModeOn]="editModeOn"
-          [skill]="item"
-          (formControlChange)="onSkillFormChange($event, i)"
-        ></app-skill-item>
-      </div>
+    <div *ngFor="let item of newSkills; let i = index">
+      <app-skill-item
+        [newSkill]="true"
+        [editModeOn]="editModeOn"
+        [skill]="item"
+        (onInit)="onSkillFormInit($event)"
+        (formControlChange)="onSkillFormChange($event)"
+        (deleteFlagChange)="onDeleteSkillChange($event)"
+      ></app-skill-item>
+    </div>
+    <div *ngFor="let item of skills; let i = index">
+      <app-skill-item
+        [editModeOn]="editModeOn"
+        [skill]="item"
+        (formControlChange)="onSkillFormChange($event)"
+        (deleteFlagChange)="onDeleteSkillChange($event)"
+      ></app-skill-item>
     </div>
   </div>
 </app-card>
