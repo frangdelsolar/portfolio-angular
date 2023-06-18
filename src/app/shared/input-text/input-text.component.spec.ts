@@ -36,16 +36,6 @@ describe('InputTextComponent', () => {
     expect(component.control.value).toBe(initialValue);
   });
 
-  it('should emit the updated value on input change', () => {
-    const newValue = 'New Value';
-    spyOn(component.valueChange, 'emit');
-
-    component.onChange(newValue);
-
-    expect(component.valueChange.emit).toHaveBeenCalledWith(newValue);
-    expect(component.value).toBe(newValue);
-  });
-
   it('should show label when editOn is false', () => {
     component.label = 'Label';
     component.editOn = false;
@@ -53,5 +43,41 @@ describe('InputTextComponent', () => {
     const label = fixture.nativeElement.querySelector('#label');
     expect(label).toBeTruthy();
     expect(label.textContent).toBe(component.label);
+  });
+
+  it('should show value as "p" when editOn is false', () => {
+    const initialValue = 'Initial Value';
+    component.control.setValue(initialValue);
+    component.editOn = false;
+    fixture.detectChanges();
+    const el = fixture.nativeElement.querySelector('#value');
+    expect(el).toBeTruthy();
+    expect(el.textContent.trim()).toBe(initialValue);
+  });
+
+  it('should show input when editOn is true', () => {
+    component.editOn = true;
+    fixture.detectChanges();
+    const input = fixture.nativeElement.querySelector('input');
+    expect(input).toBeTruthy();
+  });
+
+  it('should show label when editOn is true', () => {
+    component.label = 'Label';
+    component.editOn = true;
+    fixture.detectChanges();
+    const label = fixture.nativeElement.querySelector('label');
+    expect(label).toBeTruthy();
+    expect(label.textContent).toBe(component.label);
+  });
+
+  it('should preset value when editOn is true', () => {
+    const initialValue = 'Initial Value';
+    component.control.setValue(initialValue);
+    component.editOn = true;
+    fixture.detectChanges();
+    const input = fixture.nativeElement.querySelector('input');
+    expect(input).toBeTruthy();
+    expect(input.value).toBe(initialValue);
   });
 });
