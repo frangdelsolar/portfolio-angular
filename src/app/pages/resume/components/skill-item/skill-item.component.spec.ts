@@ -1,7 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SkillItemComponent } from './skill-item.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Skill } from '@app/core/models/skill.interface';
+import { ButtonModule } from 'primeng/button';
+import { KnobModule } from 'primeng/knob';
+import { InputTextComponent } from '@app/shared/input-text/input-text.component';
+
+const mockSkill = {
+  id: '1',
+  category: {
+    id: 1,
+    name: 'IT',
+    description: '....',
+    color: 'orange',
+    icon: 'null',
+  },
+  tags: [
+    {
+      id: 1,
+      name: 'Python',
+      description:
+        'High-level, interpreted programming language used for software development, web development, data analysis, and artificial intelligence.',
+      color: 'green',
+      icon: 'fa-python',
+    },
+  ],
+  name: 'Python',
+  description: '.',
+  level: 70,
+};
 
 describe('SkillItemComponent', () => {
   let component: SkillItemComponent;
@@ -9,8 +36,8 @@ describe('SkillItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
-      declarations: [SkillItemComponent],
+      imports: [ReactiveFormsModule, ButtonModule, KnobModule],
+      declarations: [SkillItemComponent, InputTextComponent],
     }).compileComponents();
   });
 
@@ -23,46 +50,11 @@ describe('SkillItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should emit form control changes when skill item is updated', () => {
-  //   spyOn(component.formControlChange, 'emit');
+  it('should initialize the form and emit onInit event with form value when a skill is provided', () => {
+    component.skill = mockSkill;
+    fixture.detectChanges();
 
-  //   const skill: Skill = {
-  //     id: '1',
-  //     category: {
-  //       id: 1,
-  //       name: 'IT',
-  //       description:
-  //         'The IT industry comprises companies that develop, manufacture, and provide technology products, services, and solutions, including hardware, software, telecommunications, and digital services.',
-  //       color: 'orange',
-  //       icon: 'pi-desktop',
-  //     },
-  //     tags: [
-  //       {
-  //         id: 1,
-  //         name: 'Python',
-  //         description:
-  //           'High-level, interpreted programming language used for software development, web development, data analysis, and artificial intelligence.',
-  //         color: 'green',
-  //         icon: 'fa-python',
-  //       },
-  //     ],
-  //     name: 'Python',
-  //     description: '.',
-  //     level: 70,
-  //   };
-
-  //   component.skill = skill;
-  //   component.ngOnInit();
-
-  //   const nameElement = fixture.nativeElement.querySelector('input');
-  //   nameElement.value = 'Web Development';
-  //   nameElement.dispatchEvent(new Event('input'));
-
-  //   fixture.detectChanges();
-
-  //   expect(component.formControlChange.emit).toHaveBeenCalledWith(
-  //     component.form
-  //   );
-  //   expect(component.form.value.name).toBe('Web Development');
-  // });
+    expect(component.form.value).toEqual(mockSkill);
+    expect(component.onInit.emit).toHaveBeenCalledWith(component.form);
+  });
 });

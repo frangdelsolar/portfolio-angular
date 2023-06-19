@@ -28,7 +28,7 @@ export class SkillService {
   }
 
   public delete(id: string) {
-    const url = this._apiUrl + id;
+    const url = this._apiUrl + id + '/';
     return this.privateSvc.delete(url, true);
   }
 }

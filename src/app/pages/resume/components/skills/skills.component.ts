@@ -52,6 +52,10 @@ export class SkillsComponent implements OnInit {
 
       // UPDATE
       this.updateSkillsArray();
+
+      setTimeout(() => {
+        this.ngOnInit();
+      }, 1000);
     }
   }
 
@@ -76,7 +80,7 @@ export class SkillsComponent implements OnInit {
 
   deleteSkillsArray() {
     this.deleteSkills.forEach((id: string | null) => {
-      this.skills = this.skills.filter((skill) => skill.id !== id);
+      this.skills = this.skills.filter((skill) => skill.id != id);
       if (id) {
         this.skillSvc.delete(id).subscribe((res) => {});
       }
