@@ -16,6 +16,7 @@ import { Toast } from 'primeng/toast';
   styleUrls: ['./experience-form.component.scss'],
 })
 export class ExperienceFormComponent implements OnInit {
+  @Input() item: any;
   @Input() editModeOn: boolean = true;
 
   form: FormGroup;
@@ -34,7 +35,13 @@ export class ExperienceFormComponent implements OnInit {
     private experienceSvc: ExperienceService,
     private dialogSvc: AppDialogService,
     private toastSvc: ToastService
-  ) {}
+  ) {
+    this.dialogSvc.DialogDataObservable.subscribe((data) => {
+      if (data) {
+        this.item = data.data.item;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -48,11 +55,21 @@ export class ExperienceFormComponent implements OnInit {
       category: this.categoryControl,
       tags: this.tagsControl,
     });
+
+    if (this.item) {
+      this.form.patchValue(this.item);
+      this.tagsControl.setValue(this.item.tags.map((t: any) => t.name));
+      const startDate = new Date(this.item.start_date);
+      this.startDateControl.setValue(startDate);
+      if (this.item.end_date) {
+        const endDate = new Date(this.item.end_date);
+        this.endDateControl.setValue(endDate);
+      }
+    }
   }
 
   onSaveClick() {
     // if (this.form.valid) {
-
     this.experienceSvc.create(this.form.value).subscribe(
       (response: any) => {
         if (response) {
@@ -70,46 +87,42 @@ export class ExperienceFormComponent implements OnInit {
         }
         if ('errors' in error.error) {
           error.error.errors.forEach((element: any) => {
-            if (element.field === 'title') {
-              this.titleControl.setErrors({ serverError: element.message });
-              this.titleControl.markAsDirty();
-            }
-            if (element.field === 'company') {
-              this.companyControl.setErrors({ serverError: element.message });
-              this.companyControl.markAsDirty();
-            }
-            if (element.field === 'description') {
-              this.descriptionControl.setErrors({
-                serverError: element.message,
-              });
-              this.descriptionControl.markAsDirty();
-            }
-            if (element.field === 'start_date') {
-              this.startDateControl.setErrors({
-                serverError: element.message,
-              });
-              this.startDateControl.markAsDirty();
-            }
-            if (element.field === 'end_date') {
-              this.endDateControl.setErrors({ serverError: element.message });
-              this.endDateControl.markAsDirty();
-            }
-            if (element.field === 'city') {
-              this.cityControl.setErrors({ serverError: element.message });
-              this.cityControl.markAsDirty();
-            }
-            if (element.field === 'country') {
-              this.countryControl.setErrors({ serverError: element.message });
-              this.countryControl.markAsDirty();
-            }
-            if (element.field === 'category') {
-              this.categoryControl.setErrors({ serverError: element.message });
-              this.categoryControl.markAsDirty();
-            }
-            if (element.field === 'tags') {
-              this.tagsControl.setErrors({ serverError: element.message });
-              this.tagsControl.markAsDirty();
-            }
+            const fieldName = element.field;
+            this.form.controls[fieldName].setErrors({
+              serverError: element.message,
+            });
+            this.form.controls[fieldName].markAsDirty();
+          });
+        }
+      }
+    );
+    // }
+  }
+
+  onUpdateClick() {
+    // if (this.form.valid) {
+    this.experienceSvc.update(this.item.id, this.form.value).subscribe(
+      (response: any) => {
+        if (response) {
+          this.form.patchValue(response);
+          this.dialogSvc.close();
+        }
+      },
+      (error) => {
+        if ('detail' in error.error) {
+          this.toastSvc.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: error.error.detail,
+          });
+        }
+        if ('errors' in error.error) {
+          error.error.errors.forEach((element: any) => {
+            const fieldName = element.field;
+            this.form.controls[fieldName].setErrors({
+              serverError: element.message,
+            });
+            this.form.controls[fieldName].markAsDirty();
           });
         }
       }

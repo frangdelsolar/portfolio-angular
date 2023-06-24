@@ -12,7 +12,7 @@
       [type]="type"
       pInputText
       [formControl]="control"
-      [ngClass]="control.dirty ? 'ng-invalid ng-dirty' : ''"
+      [ngClass]="control.dirty && control.errors ? 'ng-invalid ng-dirty' : ''"
     />
 
     <label htmlFor="in-text">{{ label }}</label>

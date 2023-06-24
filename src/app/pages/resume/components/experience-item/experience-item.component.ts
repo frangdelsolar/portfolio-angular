@@ -1,5 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ExperienceService } from '@app/core/controllers/experience.controller';
+import { AppDialogService } from '@app/core/services/app-dialog.service';
+import { ToastService } from '@app/core/services/toast.service';
+import { ConfirmationService } from 'primeng/api';
+import { ExperienceFormComponent } from '../experience-form/experience-form.component';
 
 @Component({
   selector: 'app-experience-item',
@@ -7,8 +13,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./experience-item.component.scss'],
 })
 export class ExperienceItemComponent implements OnInit {
+  @Input() editModeOn: boolean = true;
   @Input() experience: any;
-  constructor() {}
+
+  constructor(
+    private dialogSvc: AppDialogService,
+    private confirmationService: ConfirmationService,
+    private experienceSvc: ExperienceService,
+    private toastSvc: ToastService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -33,5 +47,46 @@ export class ExperienceItemComponent implements OnInit {
     const tags = this.experience.tags.map((tag: any) => tag.name);
 
     return new FormControl(tags, []);
+  }
+
+  onEditClick() {
+    this.dialogSvc.show({
+      component: ExperienceFormComponent,
+      data: { item: this.experience },
+      params: {
+        header: 'Edit Work Experience',
+        width: '50%',
+        contentStyle: { overflow: 'auto' },
+        baseZIndex: 10000,
+        maximizable: true,
+      },
+    });
+  }
+
+  onDeleteClick() {
+    this.confirmationService.confirm({
+      message: `Are you sure you want to delete ${this.experience.title}?`,
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.experienceSvc.delete(this.experience.id).subscribe(
+          (res) => {
+            this.toastSvc.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: `${this.experience.title} has been deleted`,
+            });
+          },
+          (err) => {
+            this.toastSvc.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `Unable to delete ${this.experience.title}`,
+            });
+          }
+        );
+      },
+      reject: () => {},
+    });
   }
 }

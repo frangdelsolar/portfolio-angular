@@ -27,6 +27,8 @@ export class ExperienceComponent implements OnInit {
   }
 
   categorizeExperience(data: any) {
+    this.categories = [];
+    this.categoryNames = [];
     data.forEach((item: any) => {
       let categoryName = item.category.name;
       if (!this.categoryNames.includes(categoryName)) {
@@ -58,6 +60,11 @@ export class ExperienceComponent implements OnInit {
         baseZIndex: 10000,
         maximizable: true,
       },
+    });
+    this.dialogSvc.DialogShowObservable.subscribe((dialogVisible) => {
+      if (!dialogVisible) {
+        this.ngOnInit();
+      }
     });
   }
 

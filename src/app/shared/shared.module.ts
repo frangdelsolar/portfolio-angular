@@ -8,6 +8,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
 import { ChipsModule } from 'primeng/chips';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
@@ -51,6 +52,7 @@ const pngModules = [
   CardModule,
   ChipsModule,
   CKEditorModule,
+  ConfirmDialogModule,
   DividerModule,
   DropdownModule,
   DynamicDialogModule,

@@ -44,6 +44,16 @@
       type="button"
       label="Add"
       (click)="onSaveClick()"
+      *ngIf="!item"
+    ></button>
+
+    <button
+      class="mt-3"
+      pButton
+      type="button"
+      label="Update"
+      (click)="onUpdateClick()"
+      *ngIf="item"
     ></button>
   </div>
 </div>

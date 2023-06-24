@@ -11,11 +11,9 @@ import { ToastService } from '@app/core/services/toast.service';
 })
 export class CategoryDropdownComponent implements OnInit {
   @Input() items: any[] = [];
-
-  categories: any[];
-  categoryControl: FormControl = new FormControl('', []);
   @Input() control: FormControl = new FormControl('', []);
 
+  categories: any[];
   addCategoryModeOn: boolean = false;
 
   constructor(
@@ -26,13 +24,17 @@ export class CategoryDropdownComponent implements OnInit {
   ngOnInit(): void {
     this.categorySvc.get().subscribe((res: any) => {
       this.categories = res;
-
       this.categories.forEach((category) => {
         this.items.push({
           id: category.id,
           name: category.name,
         });
       });
+
+      const selected = this.items.filter(
+        (item) => item.id === this.control.value.id
+      )[0];
+      this.control.setValue(selected);
     });
   }
 

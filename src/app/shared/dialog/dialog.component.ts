@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
 import { DialogData } from '@app/core/models/dialog.interface';
-
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -42,5 +41,8 @@ export class DialogComponent implements OnInit {
       this.dialogData.component,
       this.dialogData.params
     );
+    // this.ref.onClose.subscribe((data) => {
+    //   this.appDialogSvc.emitClose();
+    // }
   }
 }

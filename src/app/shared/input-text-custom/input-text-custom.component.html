@@ -10,7 +10,13 @@
       pInputText
       [(ngModel)]="value"
       (ngModelChange)="onChange($event)"
+      [ngClass]="control.dirty && control.errors ? 'ng-invalid ng-dirty' : ''"
     />
     <label htmlFor="in-text">{{ label }}</label>
   </span>
+  <div class="mx-1" *ngFor="let item of control.errors | keyvalue">
+    <small *ngIf="item.key == 'serverError'" id="input-help" class="p-error">{{
+      item.value
+    }}</small>
+  </div>
 </div>

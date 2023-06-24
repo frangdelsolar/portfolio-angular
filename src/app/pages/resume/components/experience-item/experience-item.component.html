@@ -1,8 +1,8 @@
-<div class="flex flex-wrap flex-row gap-5">
-  <div class="flex flex-column col-3">
+<div class="flex flex-row">
+  <div class="flex flex-column col-2">
     <h4>{{ dates }}</h4>
   </div>
-  <div class="flex flex-column col-8">
+  <div class="flex flex-column" [ngClass]="editModeOn ? 'col-9' : 'col-10'">
     <h3 class="py-0 my-0">{{ experience.title }}</h3>
     <h4 class="py-0 my-0 text-500 font-medium">
       {{ experience.company }} - {{ experience.city }}, {{ experience.country }}
@@ -29,5 +29,22 @@
         [control]="tagControl"
       ></app-tag-display>
     </div>
+  </div>
+  <div
+    class="flex flex-column col-1 gap-2 justify-content-center"
+    *ngIf="editModeOn"
+  >
+    <button
+      pButton
+      class="p-button-primary p-button-outlined"
+      icon="pi pi-pencil"
+      (click)="onEditClick()"
+    ></button>
+    <button
+      pButton
+      class="p-button-danger p-button-outlined"
+      icon="pi pi-trash"
+      (click)="onDeleteClick()"
+    ></button>
   </div>
 </div>

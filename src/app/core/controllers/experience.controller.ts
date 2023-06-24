@@ -24,6 +24,11 @@ export class ExperienceService {
     return this.privateSvc.put(url, data, true);
   }
 
+  public delete(id: any) {
+    const url = this._apiUrl + id + '/';
+    return this.privateSvc.delete(url, true);
+  }
+
   public updateBulk(data: any) {
     return this.privateSvc.put(this._apiBulk, data, true);
   }

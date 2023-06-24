@@ -11,6 +11,7 @@
         <app-experience-item
           *ngFor="let experience of category.experiences"
           [experience]="experience"
+          [editModeOn]="editModeOn"
         ></app-experience-item>
       </div>
     </p-tabPanel>
