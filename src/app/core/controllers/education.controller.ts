@@ -15,8 +15,18 @@ export class EducationService {
     return this.privateSvc.get(this._apiUrl, null, false);
   }
 
-  public update(data: any) {
-    return this.privateSvc.put(this._apiUrl, data, true);
+  public create(data: any) {
+    return this.privateSvc.post(this._apiUrl, data, true);
+  }
+
+  public update(id: any, data: any) {
+    const url = this._apiUrl + id + '/';
+    return this.privateSvc.put(url, data, true);
+  }
+
+  public delete(id: any) {
+    const url = this._apiUrl + id + '/';
+    return this.privateSvc.delete(url, true);
   }
 
   public updateBulk(data: any) {

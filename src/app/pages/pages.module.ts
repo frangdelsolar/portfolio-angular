@@ -8,6 +8,7 @@ import { BlogComponent } from './blog/blog.component';
 import { CategoryFormComponent } from './resume/components/category-form/category-form.component';
 import { ContactComponent } from './resume/components/contact/contact.component';
 import { EducationComponent } from './resume/components/education/education.component';
+import { EducationFormComponent } from './resume/components/education-form/education-form.component';
 import { EducationItemComponent } from './resume/components/education-item/education-item.component';
 import { ExperienceComponent } from './resume/components/experience/experience.component';
 import { ExperienceItemComponent } from './resume/components/experience-item/experience-item.component';
@@ -39,6 +40,7 @@ import { TagsSelectorComponent } from './resume/components/tags-selector/tags-se
     CategoryFormComponent,
     ContactComponent,
     EducationComponent,
+    EducationFormComponent,
     EducationItemComponent,
     ExperienceComponent,
     ExperienceFormComponent,
@@ -61,7 +63,6 @@ import { TagsSelectorComponent } from './resume/components/tags-selector/tags-se
     WorkPreviewComponent,
     CategoryDropdownComponent,
     TagsSelectorComponent,
-    CategoryFormComponent,
   ],
   imports: [CommonModule, SharedModule],
 })
