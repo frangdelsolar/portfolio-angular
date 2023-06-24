@@ -20,8 +20,7 @@ export class ExperienceItemComponent implements OnInit {
     private dialogSvc: AppDialogService,
     private confirmationService: ConfirmationService,
     private experienceSvc: ExperienceService,
-    private toastSvc: ToastService,
-    private router: Router
+    private toastSvc: ToastService
   ) {}
 
   ngOnInit(): void {}
@@ -61,6 +60,11 @@ export class ExperienceItemComponent implements OnInit {
         maximizable: true,
       },
     });
+    this.dialogSvc.DialogShowObservable.subscribe((res) => {
+      if (res === false) {
+        window.location.reload();
+      }
+    });
   }
 
   onDeleteClick() {
@@ -76,6 +80,7 @@ export class ExperienceItemComponent implements OnInit {
               summary: 'Success',
               detail: `${this.experience.title} has been deleted`,
             });
+            window.location.reload();
           },
           (err) => {
             this.toastSvc.add({

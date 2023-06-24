@@ -1,8 +1,8 @@
-<div class="flex flex-wrap flex-row gap-5">
-  <div class="flex flex-column col-3">
+<div class="flex flex-row justify-content-between px-4">
+  <div class="flex flex-column">
     <h4>{{ dates }}</h4>
   </div>
-  <div class="flex flex-column col-8">
+  <div class="flex flex-column" [ngClass]="editModeOn ? 'col-9' : 'col-10'">
     <h3 class="py-0 my-0">{{ item.qualification }}</h3>
     <h4 class="py-0 my-0 text-500 font-medium">
       {{ item.institution }} - {{ item.city }}, {{ item.country }}
@@ -19,11 +19,29 @@
       </p-panel>
     </div>
 
-    <div
-      *ngIf="item.tags.length > 0"
-      class="flex flex-row flex-wrap gap-3 pt-3"
-    >
-      <app-tag *ngFor="let tag of item.tags" [value]="tag.name"></app-tag>
+    <div class="pt-0">
+      <app-tag-display
+        [editOn]="false"
+        [label]="''"
+        [control]="tagControl"
+      ></app-tag-display>
     </div>
+  </div>
+  <div
+    class="flex flex-column col-1 gap-2 justify-content-center"
+    *ngIf="editModeOn"
+  >
+    <button
+      pButton
+      class="p-button-primary p-button-outlined"
+      icon="pi pi-pencil"
+      (click)="onEditClick()"
+    ></button>
+    <button
+      pButton
+      class="p-button-danger p-button-outlined"
+      icon="pi pi-trash"
+      (click)="onDeleteClick()"
+    ></button>
   </div>
 </div>

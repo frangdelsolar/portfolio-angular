@@ -33,9 +33,9 @@ export class EducationComponent implements OnInit {
         maximizable: true,
       },
     });
-    this.dialogSvc.DialogShowObservable.subscribe((dialogVisible) => {
-      if (!dialogVisible) {
-        this.ngOnInit();
+    this.dialogSvc.DialogShowObservable.subscribe((res) => {
+      if (res === false) {
+        window.location.reload();
       }
     });
   }
