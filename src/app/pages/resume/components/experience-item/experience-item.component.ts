@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-experience-item',
@@ -25,7 +26,12 @@ export class ExperienceItemComponent implements OnInit {
       return null;
     }
     icon = `pi ${icon.replace('fa', 'pi')}`;
-    console.log(icon);
     return icon;
+  }
+
+  get tagControl() {
+    const tags = this.experience.tags.map((tag: any) => tag.name);
+
+    return new FormControl(tags, []);
   }
 }

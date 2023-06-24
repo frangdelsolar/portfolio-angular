@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from '@app/core/controllers/experience.controller';
+import { AppDialogService } from '@app/core/services/app-dialog.service';
+import { ExperienceFormComponent } from '../experience-form/experience-form.component';
 
 @Component({
   selector: 'app-experience',
@@ -13,7 +15,10 @@ export class ExperienceComponent implements OnInit {
 
   activeIndex: number = 0;
 
-  constructor(private experienceSvc: ExperienceService) {}
+  constructor(
+    private experienceSvc: ExperienceService,
+    private dialogSvc: AppDialogService
+  ) {}
 
   ngOnInit(): void {
     this.experienceSvc.get().subscribe((data: any) => {
@@ -43,6 +48,18 @@ export class ExperienceComponent implements OnInit {
     });
   }
 
-  onAddClick() {}
+  onAddClick() {
+    this.dialogSvc.show({
+      component: ExperienceFormComponent,
+      params: {
+        header: 'Add Work Experience',
+        width: '50%',
+        contentStyle: { overflow: 'auto' },
+        baseZIndex: 10000,
+        maximizable: true,
+      },
+    });
+  }
+
   onSaveClick() {}
 }

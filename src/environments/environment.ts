@@ -12,6 +12,7 @@ export const environment = {
 
   apiUrl: '',
   apiAbout: '',
+  apiCategory: '',
   apiContactMe: '',
   apiEducation: '',
   apiEducationBulk: '',

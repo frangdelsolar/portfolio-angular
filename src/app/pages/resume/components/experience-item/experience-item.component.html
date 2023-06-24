@@ -22,11 +22,12 @@
       </p-panel>
     </div>
 
-    <div
-      *ngIf="experience.tags.length > 0"
-      class="flex flex-row flex-wrap gap-3 pt-3"
-    >
-      <app-tag *ngFor="let tag of experience.tags" [value]="tag.name"></app-tag>
+    <div class="pt-0">
+      <app-tag-display
+        [editOn]="false"
+        [label]="''"
+        [control]="tagControl"
+      ></app-tag-display>
     </div>
   </div>
 </div>

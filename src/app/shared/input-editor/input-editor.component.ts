@@ -10,8 +10,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export class InputEditorComponent implements OnInit {
   Editor = ClassicEditor;
   @Input() control: FormControl = new FormControl('', []);
-  text: string;
 
+  @Input() label: string;
   constructor() {}
 
   ngOnInit(): void {}

@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AboutComponent } from './resume/components/about/about.component';
 import { AttachmentsComponent } from './resume/components/attachments/attachments.component';
 import { BlogComponent } from './blog/blog.component';
+import { CategoryFormComponent } from './resume/components/category-form/category-form.component';
 import { ContactComponent } from './resume/components/contact/contact.component';
 import { EducationComponent } from './resume/components/education/education.component';
 import { EducationItemComponent } from './resume/components/education-item/education-item.component';
@@ -26,16 +27,21 @@ import { WorkListComponent } from './works/components/work-list/work-list.compon
 import { WorkItemComponent } from './works/components/work-item/work-item.component';
 import { WorkPreviewComponent } from './works/components/work-preview/work-preview.component';
 import { PasswordNewComponent } from './auth/components/password-new/password-new.component';
+import { ExperienceFormComponent } from './resume/components/experience-form/experience-form.component';
+import { CategoryDropdownComponent } from './resume/components/category-dropdown/category-dropdown.component';
+import { TagsSelectorComponent } from './resume/components/tags-selector/tags-selector.component';
 
 @NgModule({
   declarations: [
     AboutComponent,
     AttachmentsComponent,
     BlogComponent,
+    CategoryFormComponent,
     ContactComponent,
     EducationComponent,
     EducationItemComponent,
     ExperienceComponent,
+    ExperienceFormComponent,
     ExperienceItemComponent,
     HomeComponent,
     LoginFormComponent,
@@ -53,6 +59,9 @@ import { PasswordNewComponent } from './auth/components/password-new/password-ne
     WorkListComponent,
     WorkItemComponent,
     WorkPreviewComponent,
+    CategoryDropdownComponent,
+    TagsSelectorComponent,
+    CategoryFormComponent,
   ],
   imports: [CommonModule, SharedModule],
 })

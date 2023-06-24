@@ -1,0 +1,30 @@
+<div
+  class="flex flex-column gap-3 flex flex-column justify-content-center align-items-center"
+>
+  <div class="flex flex-row gap-3 w-full mt-4 justify-content-between">
+    <app-dropdown
+      [items]="items"
+      [label]="'Category'"
+      [control]="control"
+    ></app-dropdown>
+    <p-button
+      *ngIf="!addCategoryModeOn"
+      icon="pi pi-plus"
+      styleClass="p-button-rounded p-button-primary p-button-text"
+      (onClick)="onAddCategoryClick()"
+    ></p-button>
+    <p-button
+      *ngIf="addCategoryModeOn"
+      icon="pi pi-minus"
+      styleClass="p-button-rounded p-button-primary p-button-text"
+      (onClick)="onAddCategoryClick()"
+    ></p-button>
+  </div>
+
+  <div
+    *ngIf="addCategoryModeOn"
+    class="border-solid border-200 border-round-lg px-5 py-3 surface-ground w-auto"
+  >
+    <app-category-form (onSave)="onAddCategorySave($event)"></app-category-form>
+  </div>
+</div>

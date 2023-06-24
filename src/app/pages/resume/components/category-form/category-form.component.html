@@ -1,0 +1,14 @@
+<div class="flex flex-column row-gap-3">
+  <h3>Add Category</h3>
+  <app-input-text
+    [editOn]="true"
+    [control]="categoryNameControl"
+    [label]="'Name'"
+  ></app-input-text>
+  <app-input-text
+    [editOn]="true"
+    [control]="categoryDescriptionControl"
+    [label]="'Description'"
+  ></app-input-text>
+  <button pButton type="button" label="Add" (click)="onSaveClick()"></button>
+</div>

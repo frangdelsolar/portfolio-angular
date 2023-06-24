@@ -4,9 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BlockUIModule } from 'primeng/blockui';
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
+import { ChipsModule } from 'primeng/chips';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { DividerModule } from 'primeng/divider';
+import { DropdownModule } from 'primeng/dropdown';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ImageModule } from 'primeng/image';
@@ -25,7 +28,10 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
 import { CardComponent } from './card/card.component';
+import { ChipsComponent } from './chips/chips.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 import { EditActionsComponent } from './edit-actions/edit-actions.component';
 import { InputEditorComponent } from './input-editor/input-editor.component';
 import { InputImageComponent } from './input-image/input-image.component';
@@ -35,14 +41,18 @@ import { InputTextCustomComponent } from './input-text-custom/input-text-custom.
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { TagComponent } from './tag/tag.component';
 import { ToastComponent } from './toast/toast.component';
+import { TagDisplayComponent } from './tag-display/tag-display.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 const pngModules = [
   BlockUIModule,
   ButtonModule,
+  CalendarModule,
   CardModule,
+  ChipsModule,
   CKEditorModule,
   DividerModule,
+  DropdownModule,
   DynamicDialogModule,
   FileUploadModule,
   FormsModule,
@@ -65,7 +75,10 @@ const pngModules = [
 
 const uiComponents = [
   CardComponent,
+  ChipsComponent,
+  DatepickerComponent,
   DialogComponent,
+  DropdownComponent,
   EditActionsComponent,
   InputImageComponent,
   InputEditorComponent,
@@ -74,6 +87,7 @@ const uiComponents = [
   InputTextCustomComponent,
   TabMenuComponent,
   TagComponent,
+  TagDisplayComponent,
   ToastComponent,
   ToolbarComponent,
 ];

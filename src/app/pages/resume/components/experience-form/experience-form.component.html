@@ -1,0 +1,49 @@
+<div class="flex justify-content-center">
+  <div class="flex flex-column gap-1 w-full">
+    <app-input-text
+      [editOn]="editModeOn"
+      [label]="'Title'"
+      [control]="titleControl"
+    ></app-input-text>
+    <app-input-text
+      [editOn]="editModeOn"
+      [label]="'Company'"
+      [control]="companyControl"
+    ></app-input-text>
+
+    <app-input-text
+      [label]="'City'"
+      [editOn]="editModeOn"
+      [control]="cityControl"
+    ></app-input-text>
+    <app-input-text
+      [label]="'Country'"
+      [editOn]="editModeOn"
+      [control]="countryControl"
+    ></app-input-text>
+    <app-category-dropdown [control]="categoryControl"></app-category-dropdown>
+
+    <app-tags-selector [control]="tagsControl"></app-tags-selector>
+    <app-datepicker
+      [label]="'Start Date'"
+      [control]="startDateControl"
+    ></app-datepicker>
+    <app-datepicker
+      [label]="'End Date'"
+      [control]="endDateControl"
+    ></app-datepicker>
+
+    <app-input-editor
+      [label]="'Description'"
+      [control]="descriptionControl"
+    ></app-input-editor>
+
+    <button
+      class="mt-3"
+      pButton
+      type="button"
+      label="Add"
+      (click)="onSaveClick()"
+    ></button>
+  </div>
+</div>

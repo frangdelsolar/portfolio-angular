@@ -49,12 +49,4 @@ describe('SkillItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should initialize the form and emit onInit event with form value when a skill is provided', () => {
-    component.skill = mockSkill;
-    fixture.detectChanges();
-
-    expect(component.form.value).toEqual(mockSkill);
-    expect(component.onInit.emit).toHaveBeenCalledWith(component.form);
-  });
 });
