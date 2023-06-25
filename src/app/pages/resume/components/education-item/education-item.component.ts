@@ -12,7 +12,7 @@ import { EducationFormComponent } from '../education-form/education-form.compone
   styleUrls: ['./education-item.component.scss'],
 })
 export class EducationItemComponent implements OnInit {
-  @Input() editModeOn: boolean = true;
+  @Input() editModeOn: boolean = false;
   @Input() item: any;
 
   constructor(

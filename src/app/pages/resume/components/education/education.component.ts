@@ -39,6 +39,4 @@ export class EducationComponent implements OnInit {
       }
     });
   }
-
-  onSaveClick() {}
 }

@@ -3,7 +3,7 @@
     [addButtonOn]="true"
     [addCallback]="onAddClick.bind(this)"
     [(editModeOn)]="editModeOn"
-    [saveCallback]="onSaveClick.bind(this)"
+    [saveButtonOn]="false"
   ></app-edit-actions>
   <p-tabView [(activeIndex)]="activeIndex" [scrollable]="true">
     <p-tabPanel *ngFor="let category of categories" [header]="category.label">

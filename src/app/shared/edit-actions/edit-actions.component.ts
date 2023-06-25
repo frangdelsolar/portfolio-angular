@@ -15,6 +15,7 @@ export class EditActionsComponent implements OnInit {
   @Input() saveCallback: Function = () => {};
   @Input() addCallback: Function = () => {};
   @Input() addButtonOn: boolean = false;
+  @Input() saveButtonOn: boolean = false;
 
   constructor(private authSvc: AuthService) {}
 

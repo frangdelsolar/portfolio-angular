@@ -3,13 +3,14 @@
     [addButtonOn]="true"
     [addCallback]="onAddClick.bind(this)"
     [(editModeOn)]="editModeOn"
-    [saveCallback]="onSaveClick.bind(this)"
+    [saveButtonOn]="false"
   ></app-edit-actions>
   <div class="flex flex-column gap-4">
     <app-education-item
       class="education-item"
       *ngFor="let item of education"
       [item]="item"
+      [editModeOn]="editModeOn"
     ></app-education-item>
   </div>
 </app-card>
