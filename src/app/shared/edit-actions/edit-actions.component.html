@@ -24,12 +24,19 @@
         styleClass="p-button"
         (onClick)="onAddClick()"
       ></p-button>
+      <p-button
+        *ngIf="deleteButtonOn"
+        id="add"
+        label="Delete"
+        styleClass="p-button p-button-danger p-button-outlined"
+        (onClick)="onDeleteClick()"
+      ></p-button>
     </div>
 
     <div class="flex justify-content-end flex-wrap">
       <p-button
         id="cancel"
-        label="Cancel"
+        [label]="cancelButtonLabel"
         styleClass="p-button-secondary p-button-text"
         (onClick)="onCancelClick()"
       ></p-button>

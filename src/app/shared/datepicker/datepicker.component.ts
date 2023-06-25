@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./datepicker.component.scss'],
 })
 export class DatepickerComponent implements OnInit {
+  @Input() editOn: boolean = false;
   @Input() label: string = 'Label';
   @Input() control: FormControl = new FormControl('', []);
   constructor() {}

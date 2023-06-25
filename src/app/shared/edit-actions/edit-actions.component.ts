@@ -14,8 +14,12 @@ export class EditActionsComponent implements OnInit {
 
   @Input() saveCallback: Function = () => {};
   @Input() addCallback: Function = () => {};
+  @Input() deleteCallback: Function = () => {};
   @Input() addButtonOn: boolean = false;
-  @Input() saveButtonOn: boolean = false;
+  @Input() saveButtonOn: boolean = true;
+  @Input() preventDefaultSave: boolean = false;
+  @Input() deleteButtonOn: boolean = false;
+  @Input() cancelButtonLabel: string = 'Cancel';
 
   constructor(private authSvc: AuthService) {}
 
@@ -40,10 +44,21 @@ export class EditActionsComponent implements OnInit {
   }
 
   onSaveClick() {
+    if (!this.preventDefaultSave) {
+      this.editModeOn = false;
+      this.editModeOnChange.emit(this.editModeOn);
+    }
+
+    if (this.isAuth) {
+      this.saveCallback();
+    }
+  }
+
+  onDeleteClick() {
     this.editModeOn = false;
     this.editModeOnChange.emit(this.editModeOn);
     if (this.isAuth) {
-      this.saveCallback();
+      this.deleteCallback();
     }
   }
 }

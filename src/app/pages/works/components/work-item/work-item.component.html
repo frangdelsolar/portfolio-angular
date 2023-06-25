@@ -3,10 +3,14 @@
     <app-edit-actions
       [(editModeOn)]="editModeOn"
       [saveCallback]="onSaveClick.bind(this)"
+      [deleteButtonOn]="!addNewOn"
+      [deleteCallback]="onDeleteClick.bind(this)"
+      [cancelButtonLabel]="'Preview'"
+      [preventDefaultSave]="true"
     ></app-edit-actions>
 
     <div style="width: 80%; align-self: center">
-      <app-input-image [editModeOn]="editModeOn" [item]="item.image">
+      <app-input-image [editModeOn]="editModeOn" [control]="imageControl">
       </app-input-image>
     </div>
 
@@ -25,6 +29,11 @@
     >
       <p class="text-sm">{{ previewControl.value }}</p>
     </app-input-text-area>
+    <app-category-dropdown
+      *ngIf="editModeOn"
+      [control]="categoryControl"
+    ></app-category-dropdown>
+
     <section>
       <div class="flex flex-row justify-content-center align-items-center">
         <div class="flex flex-column col-6">
@@ -86,12 +95,11 @@
               <i class="pi pi-calendar" style="font-size: 2rem"></i>
             </div>
             <div class="col-10">
-              <app-input-text
+              <app-datepicker
                 [editOn]="editModeOn"
-                [label]="'Start date'"
                 [control]="startDateControl"
-                [type]="'text'"
-              ></app-input-text>
+                [label]="'Start date'"
+              ></app-datepicker>
             </div>
           </div>
           <div class="flex flex-row">

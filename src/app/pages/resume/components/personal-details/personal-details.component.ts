@@ -17,8 +17,7 @@ export class PersonalDetailsComponent implements OnInit {
   title: string = 'Personal Details';
   image: Image = {
     description: 'Placeholder',
-    image_url:
-      'https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg',
+    image_url: 'assets/placeholder-profile.jpeg',
   };
 
   editModeOn: boolean = false;
@@ -30,6 +29,7 @@ export class PersonalDetailsComponent implements OnInit {
   phoneControl = new FormControl('', [Validators.required]);
   cityControl = new FormControl('', [Validators.required]);
   countryControl = new FormControl('', [Validators.required]);
+  imageControl = new FormControl('', [Validators.required]);
 
   constructor(private fb: FormBuilder, private personalSvc: PersonalService) {}
 
@@ -41,6 +41,7 @@ export class PersonalDetailsComponent implements OnInit {
       phone: this.phoneControl,
       city: this.cityControl,
       country: this.countryControl,
+      profile_picture: this.imageControl,
     });
     this.personalSvc.get().subscribe((response: any) => {
       if (response) {

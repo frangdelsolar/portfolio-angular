@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { WorkService } from '@app/core/controllers/work.controller';
 import { Work } from '@app/core/models/work.interface';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
@@ -26,7 +25,7 @@ export class WorkListComponent implements OnInit {
   open(item: Work) {
     this.dialogSvc.show({
       component: WorkItemComponent,
-      data: item,
+      data: { item },
       params: {
         header: '',
         width: '60%',
