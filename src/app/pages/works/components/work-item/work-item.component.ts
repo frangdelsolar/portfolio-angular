@@ -35,7 +35,7 @@ export class WorkItemComponent implements OnInit {
   projectControl = new FormControl('', [Validators.required]);
   repositoryControl = new FormControl('', []);
   startDateControl = new FormControl('', [Validators.required]);
-  technologiesControl = new FormControl('', []);
+  technologiesControl = new FormControl([''], []);
   titleControl = new FormControl('', [Validators.required]);
   urlControl = new FormControl('', []);
   imageControl = new FormControl(this.placeholder, [Validators.required]);
@@ -69,6 +69,12 @@ export class WorkItemComponent implements OnInit {
       if ('item' in data) {
         this.item = data.item;
         this.form.patchValue(this.item);
+
+        const tagNames: string[] = [];
+        data.item.tags.forEach((element: any) => {
+          tagNames.push(element.name);
+        });
+        this.technologiesControl.setValue(tagNames);
       }
       if ('editModeOn' in data) {
         this.editModeOn = data.editModeOn;

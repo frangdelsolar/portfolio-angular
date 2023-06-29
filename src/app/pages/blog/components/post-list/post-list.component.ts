@@ -25,7 +25,7 @@ export class PostListComponent implements OnInit {
   open(item: Post) {
     this.dialogSvc.show({
       component: PostItemComponent,
-      data: item,
+      data: { item },
       params: {
         header: '',
         width: '60%',

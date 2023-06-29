@@ -1,0 +1,56 @@
+<div class="flex justify-content-center">
+  <div class="flex flex-column gap-1 w-full">
+    <app-input-text
+      [editOn]="editModeOn"
+      [label]="'Name'"
+      [control]="nameControl"
+    ></app-input-text>
+    <app-input-text
+      [editOn]="editModeOn"
+      [label]="'Description'"
+      [control]="descriptionControl"
+    ></app-input-text>
+
+    <div class="mt-4" *ngIf="item">
+      <span class="text-lg font-semibold">{{ item.file_name }}</span> -
+      {{ (item.file_size / (1024 * 1024)).toFixed(2) }} Mb
+    </div>
+
+    <div class="mt-4">
+      <p-fileUpload
+        mode="advanced"
+        chooseLabel="Choose"
+        accept=".pdf, .doc, .docx, .txt, .png, .jpg, .jpeg, .gif"
+        [auto]="true"
+        [customUpload]="true"
+        (uploadHandler)="uploadHandler($event)"
+      >
+        <ng-template pTemplate="content">
+          <ul *ngIf="fileControl.value.length > 0">
+            <li *ngFor="let file of fileControl.value">
+              {{ file.name }} - {{ file.size }} bytes
+            </li>
+          </ul>
+        </ng-template>
+      </p-fileUpload>
+    </div>
+
+    <button
+      class="mt-3"
+      pButton
+      type="button"
+      label="Add"
+      (click)="onSaveClick()"
+      *ngIf="!item"
+    ></button>
+
+    <button
+      class="mt-3"
+      pButton
+      type="button"
+      label="Update"
+      (click)="onUpdateClick()"
+      *ngIf="item"
+    ></button>
+  </div>
+</div>

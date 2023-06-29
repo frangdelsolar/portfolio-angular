@@ -1,6 +1,9 @@
-<app-edit-actions
-  [addButtonOn]="true"
-  [addCallback]="onAddClick.bind(this)"
-  [saveButtonOn]="false"
-></app-edit-actions>
-<app-work-list></app-work-list>
+<div class="flex flex-column">
+  <app-edit-actions
+    [editModeOn]="false"
+    [addButtonOn]="true"
+    [addCallback]="onAddClick.bind(this)"
+    [saveButtonOn]="false"
+  ></app-edit-actions>
+  <app-work-list></app-work-list>
+</div>

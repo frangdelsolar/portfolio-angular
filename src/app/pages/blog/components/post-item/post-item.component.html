@@ -3,10 +3,14 @@
     <app-edit-actions
       [(editModeOn)]="editModeOn"
       [saveCallback]="onSaveClick.bind(this)"
+      [deleteButtonOn]="!addNewOn"
+      [deleteCallback]="onDeleteClick.bind(this)"
+      [cancelButtonLabel]="'Preview'"
+      [preventDefaultSave]="true"
     ></app-edit-actions>
 
     <div style="width: 80%; align-self: center">
-      <app-input-image [editModeOn]="editModeOn" [item]="item.image">
+      <app-input-image [editModeOn]="editModeOn" [control]="imageControl">
       </app-input-image>
     </div>
 
@@ -17,6 +21,18 @@
     >
       <h1 class="mb-1 pb-1">{{ titleControl.value }}</h1>
     </app-input-text-custom>
+
+    <app-category-dropdown
+      *ngIf="editModeOn"
+      [control]="categoryControl"
+    ></app-category-dropdown>
+
+    <app-tag-display
+      [editOn]="editModeOn"
+      *ngIf="editModeOn"
+      [label]="'Tags'"
+      [control]="tagsControl"
+    ></app-tag-display>
 
     <app-input-text-area
       [editOn]="editModeOn"

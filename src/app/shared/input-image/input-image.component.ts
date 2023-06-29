@@ -37,6 +37,8 @@ export class InputImageComponent implements OnInit {
     this.processing = true;
     let formData = new FormData();
     formData.append('file', event.files[0]);
+    formData.append('name', event.files[0].name);
+    formData.append('description', event.files[0].name);
 
     this.imageSvc.uploadImage(formData).subscribe((res) => {
       this.control.setValue(res);

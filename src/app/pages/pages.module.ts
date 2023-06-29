@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
 import { AboutComponent } from './resume/components/about/about.component';
+import { AttachmentFormComponent } from './resume/components/attachment-form/attachment-form.component';
 import { AttachmentsComponent } from './resume/components/attachments/attachments.component';
 import { BlogComponent } from './blog/blog.component';
 import { CategoryFormComponent } from './resume/components/category-form/category-form.component';
@@ -35,6 +36,7 @@ import { TagsSelectorComponent } from './resume/components/tags-selector/tags-se
 @NgModule({
   declarations: [
     AboutComponent,
+    AttachmentFormComponent,
     AttachmentsComponent,
     BlogComponent,
     CategoryDropdownComponent,
