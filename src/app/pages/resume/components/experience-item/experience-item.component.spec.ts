@@ -1,78 +1,80 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ExperienceService } from '@app/core/controllers/experience.controller';
+import { AppDialogService } from '@app/core/services/app-dialog.service';
+import { ToastService } from '@app/core/services/toast.service';
+import { ConfirmationService } from 'primeng/api';
+import { of } from 'rxjs';
 import { ExperienceItemComponent } from './experience-item.component';
+
+const mockDialogSvc = {
+  close: () => {},
+  DialogDataObservable: of({ data: {} }),
+};
+
+const mockToastSvc = {
+  add: () => {},
+};
+
+const mockExperienceSvc = {
+  delete: () => {},
+  update: () => {},
+  create: () => {},
+};
+
+const mockConfirmationSvc = {
+  confirm: () => {},
+};
 
 describe('ExperienceItemComponent', () => {
   let component: ExperienceItemComponent;
   let fixture: ComponentFixture<ExperienceItemComponent>;
+  let dialogSvc: AppDialogService;
+  let confirmationService: ConfirmationService;
+  let experienceSvc: ExperienceService;
+  let toastSvc: ToastService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ExperienceItemComponent],
+      providers: [
+        { provide: ExperienceService, useValue: mockExperienceSvc },
+        { provide: ToastService, useValue: mockToastSvc },
+        { provide: AppDialogService, useValue: mockDialogSvc },
+        { provide: ConfirmationService, useValue: mockConfirmationSvc },
+      ],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ExperienceItemComponent);
     component = fixture.componentInstance;
-  });
-
-  it('should create', () => {
-    component.experience = {
-      title: 'Software Developer',
-      company: 'Company A',
-      city: 'City A',
-      country: 'Country A',
-      start_date: '2020-01-01',
-      end_date: '2023-12-31',
-      description: 'Experience description',
-      tags: [{ name: 'Tag 1' }, { name: 'Tag 2' }],
-    };
-
-    fixture.detectChanges();
-
-    expect(component).toBeTruthy();
-  });
-
-  it('should display correct dates', () => {
     component.experience = {
       title: 'Software Developer',
       company: 'Company A',
       city: 'City A',
       country: 'Country A',
       start_date: '2020-02-01',
-      end_date: '2023-12-31',
+      end_date: '2023-12-28',
       description: 'Experience description',
       tags: [{ name: 'Tag 1' }, { name: 'Tag 2' }],
     };
 
     fixture.detectChanges();
+  });
 
-    const datesElement = fixture.nativeElement.querySelector(
-      '.flex.flex-column.col-3 h4'
-    );
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should display correct dates', () => {
+    const datesElement = fixture.nativeElement.querySelector('#dates');
     expect(datesElement.textContent.trim()).toBe('2020 to 2023');
   });
 
   it('should display correct title, company, and location', () => {
-    component.experience = {
-      title: 'Software Developer',
-      company: 'Company A',
-      city: 'City A',
-      country: 'Country A',
-      start_date: '2020-01-01',
-      end_date: '2023-12-31',
-      description: 'Experience description',
-      tags: [{ name: 'Tag 1' }, { name: 'Tag 2' }],
-    };
-
-    fixture.detectChanges();
-
-    const titleElement = fixture.nativeElement.querySelector(
-      '.flex.flex-column.col-8 h3'
-    );
-    const companyLocationElement = fixture.nativeElement.querySelector(
-      '.flex.flex-column.col-8 h4'
-    );
+    const titleElement = fixture.nativeElement.querySelector('#title');
+    const companyLocationElement =
+      fixture.nativeElement.querySelector('#subtitle');
     expect(titleElement.textContent.trim()).toBe('Software Developer');
     expect(companyLocationElement.textContent.trim()).toBe(
       'Company A - City A, Country A'
@@ -80,44 +82,16 @@ describe('ExperienceItemComponent', () => {
   });
 
   it('should display experience description', () => {
-    component.experience = {
-      title: 'Software Developer',
-      company: 'Company A',
-      city: 'City A',
-      country: 'Country A',
-      start_date: '2020-01-01',
-      end_date: '2023-12-31',
-      description: 'Experience description',
-      tags: [{ name: 'Tag 1' }, { name: 'Tag 2' }],
-    };
-
-    fixture.detectChanges();
-
-    const descriptionElement = fixture.nativeElement.querySelector(
-      '.text-sm.line-height-2'
-    );
+    const descriptionElement =
+      fixture.nativeElement.querySelector('#description');
     expect(descriptionElement.textContent.trim()).toBe(
       'Experience description'
     );
   });
 
-  it('should display tags', () => {
-    component.experience = {
-      title: 'Software Developer',
-      company: 'Company A',
-      city: 'City A',
-      country: 'Country A',
-      start_date: '2020-01-01',
-      end_date: '2023-12-31',
-      description: 'Experience description',
-      tags: [{ name: 'Tag 1' }, { name: 'Tag 2' }],
-    };
-
-    fixture.detectChanges();
-
-    const tagElements = fixture.nativeElement.querySelectorAll(
-      '.flex.flex-row.flex-wrap.gap-3 app-tag'
-    );
-    expect(tagElements.length).toBe(2);
+  it('should display tag section', () => {
+    const tagElements =
+      fixture.nativeElement.querySelectorAll('app-tag-display');
+    expect(tagElements.length).toBe(1);
   });
 });

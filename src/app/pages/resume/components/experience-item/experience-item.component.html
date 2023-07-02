@@ -1,10 +1,10 @@
 <div class="flex flex-row">
   <div class="flex flex-column col-2">
-    <h4>{{ dates }}</h4>
+    <h4 id="dates">{{ dates }}</h4>
   </div>
   <div class="flex flex-column" [ngClass]="editModeOn ? 'col-9' : 'col-10'">
-    <h3 class="py-0 my-0">{{ experience.title }}</h3>
-    <h4 class="py-0 my-0 text-500 font-medium">
+    <h3 id="title" class="py-0 my-0">{{ experience.title }}</h3>
+    <h4 id="subtitle" class="py-0 my-0 text-500 font-medium">
       {{ experience.company }} - {{ experience.city }}, {{ experience.country }}
     </h4>
 
@@ -17,6 +17,7 @@
       >
         <div
           class="text-sm line-height-2"
+          id="description"
           [innerHtml]="experience.description"
         ></div>
       </p-panel>

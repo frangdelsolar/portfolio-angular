@@ -8,6 +8,7 @@ import { InputTextComponent } from '@app/shared/input-text/input-text.component'
 import { InputEditorComponent } from '@app/shared/input-editor/input-editor.component';
 import { InputTextAreaComponent } from '@app/shared/input-text-area/input-text-area.component';
 import { By } from '@angular/platform-browser';
+import { ConfirmationService } from 'primeng/api';
 
 const mockItem = {
   id: 3,
@@ -79,11 +80,16 @@ const mockWorkSvc = {
   update: jasmine.createSpy('update'),
 };
 
+const mockConfirmationSvc = {
+  confirm: jasmine.createSpy('confirm'),
+};
+
 describe('WorkItemComponent', () => {
   let component: WorkItemComponent;
   let fixture: ComponentFixture<WorkItemComponent>;
   let dialogService: AppDialogService;
   let workService: WorkService;
+  let confirmationSvc: ConfirmationService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -97,6 +103,7 @@ describe('WorkItemComponent', () => {
       providers: [
         { provide: AppDialogService, useValue: mockDialogSvc },
         { provide: WorkService, useValue: mockWorkSvc },
+        { provide: ConfirmationService, useValue: mockConfirmationSvc },
       ],
     }).compileComponents();
   });

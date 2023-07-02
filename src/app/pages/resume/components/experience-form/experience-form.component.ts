@@ -8,7 +8,6 @@ import {
 import { ExperienceService } from '@app/core/controllers/experience.controller';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
 import { ToastService } from '@app/core/services/toast.service';
-import { Toast } from 'primeng/toast';
 
 @Component({
   selector: 'app-experience-form',

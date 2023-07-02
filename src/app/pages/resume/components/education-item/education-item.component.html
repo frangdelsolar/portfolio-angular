@@ -1,10 +1,10 @@
 <div class="flex flex-row justify-content-between px-4">
-  <div class="flex flex-column">
+  <div id="dates" class="flex flex-column">
     <h4>{{ dates }}</h4>
   </div>
   <div class="flex flex-column" [ngClass]="editModeOn ? 'col-9' : 'col-10'">
-    <h3 class="py-0 my-0">{{ item.qualification }}</h3>
-    <h4 class="py-0 my-0 text-500 font-medium">
+    <h3 id="qualification" class="py-0 my-0">{{ item.qualification }}</h3>
+    <h4 id="location" class="py-0 my-0 text-500 font-medium">
       {{ item.institution }} - {{ item.city }}, {{ item.country }}
     </h4>
 

@@ -1,25 +1,37 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputImageComponent } from './input-image.component';
 import { By } from '@angular/platform-browser';
+import { ImageService } from '@app/core/controllers/image.controller';
+
+const mockImageSvc = {
+  uploadImage: () => {
+    return {
+      subscribe: () => {},
+    };
+  },
+};
 
 describe('InputImageComponent', () => {
   let component: InputImageComponent;
   let fixture: ComponentFixture<InputImageComponent>;
+  let imageSvc: ImageService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InputImageComponent],
+      providers: [{ provide: ImageService, useValue: mockImageSvc }],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(InputImageComponent);
     component = fixture.componentInstance;
+    imageSvc = TestBed.inject(ImageService);
     component.item = {
-      name: 'bfs',
-      description: '',
-      image_url: 'http://localhost:8000/media/images/bfs.jpeg',
-      thumbnail_url: 'http://localhost:8000/media/thumbnails/bfs_thumbnail.jpg',
+      name: 'test',
+      description: 'Test Image',
+      image_url: 'http://example.com/image.jpg',
+      thumbnail_url: 'http://example.com/thumb.jpg',
     };
     fixture.detectChanges();
   });
@@ -32,12 +44,6 @@ describe('InputImageComponent', () => {
     const image: HTMLImageElement = fixture.debugElement.query(
       By.css('.image')
     ).nativeElement;
-    component.item = {
-      description: 'Test Image',
-      image_url: 'http://example.com/image.jpg',
-    };
-    fixture.detectChanges();
-
     expect(image.alt).toBe('Test Image');
     expect(image.src).toBe('http://example.com/image.jpg');
   });
@@ -55,14 +61,5 @@ describe('InputImageComponent', () => {
 
     expect(overlay).toBeTruthy();
     expect(fileUploadComponent).toBeTruthy();
-  });
-
-  it('should log the upload event when onUpload is called', () => {
-    spyOn(console, 'log');
-    const event = {
-      /* mock event data */
-    };
-    component.onUpload(event);
-    expect(console.log).toHaveBeenCalledWith(event);
   });
 });

@@ -185,7 +185,7 @@ describe('PostListComponent', () => {
 
     expect(dialogService.show).toHaveBeenCalledWith({
       component: PostItemComponent,
-      data: mockPost,
+      data: { item: mockPost },
       params: {
         header: '',
         width: '60%',

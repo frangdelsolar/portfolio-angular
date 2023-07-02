@@ -5,12 +5,14 @@ import { of } from 'rxjs';
 import { PostItemComponent } from './post-item.component';
 import { PostService } from '@app/core/controllers/post.controller';
 import { AppDialogService } from '@app/core/services/app-dialog.service';
+import { ConfirmationService } from 'primeng/api';
 
 describe('PostItemComponent', () => {
   let component: PostItemComponent;
   let fixture: ComponentFixture<PostItemComponent>;
   let dialogService: AppDialogService;
   let postService: PostService;
+  let confirmationSvc: ConfirmationService;
 
   const mockItem = {
     id: '1',
@@ -54,6 +56,10 @@ describe('PostItemComponent', () => {
     update: jasmine.createSpy('update'),
   };
 
+  const mockConfirmationSvc = {
+    confirm: jasmine.createSpy('confirm'),
+  };
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
@@ -61,6 +67,7 @@ describe('PostItemComponent', () => {
       providers: [
         { provide: PostService, useValue: mockPostSvc },
         { provide: AppDialogService, useValue: mockDialogSvc },
+        { provide: ConfirmationService, useValue: mockConfirmationSvc },
       ],
     }).compileComponents();
   });
@@ -71,6 +78,7 @@ describe('PostItemComponent', () => {
     component.item = mockItem;
     dialogService = TestBed.inject(AppDialogService);
     postService = TestBed.inject(PostService);
+    confirmationSvc = TestBed.inject(ConfirmationService);
     fixture.detectChanges();
   });
 
