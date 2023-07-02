@@ -39,6 +39,13 @@
             icon="pi pi-pencil"
             (click)="onEditClick(file)"
           ></button>
+          <button
+            pButton
+            *ngIf="editModeOn"
+            class="p-button-danger p-button-outlined"
+            icon="pi pi-trash"
+            (click)="onDeleteClick(file)"
+          ></button>
         </div>
       </div>
     </div>

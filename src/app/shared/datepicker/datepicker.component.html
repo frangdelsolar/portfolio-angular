@@ -1,7 +1,7 @@
 <div *ngIf="!editOn">
   <h3 id="label" class="py-0 my-0 font-normal text-base">{{ label }}</h3>
   <p id="value" class="py-0 my-0 font-bold text-lg">
-    {{ control.value || "N/A" }}
+    {{ control.value | date : "dd/MM/yyyy" || "N/A" }}
   </p>
 </div>
 <div *ngIf="editOn">

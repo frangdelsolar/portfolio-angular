@@ -12,5 +12,7 @@ export class DatepickerComponent implements OnInit {
   @Input() control: FormControl = new FormControl('', []);
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.control.setValue(new Date(this.control.value));
+  }
 }
