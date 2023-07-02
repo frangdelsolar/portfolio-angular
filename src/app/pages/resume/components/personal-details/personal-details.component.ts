@@ -29,7 +29,7 @@ export class PersonalDetailsComponent implements OnInit {
   phoneControl = new FormControl('', [Validators.required]);
   cityControl = new FormControl('', [Validators.required]);
   countryControl = new FormControl('', [Validators.required]);
-  imageControl = new FormControl('', [Validators.required]);
+  imageControl = new FormControl(this.image, [Validators.required]);
 
   constructor(private fb: FormBuilder, private personalSvc: PersonalService) {}
 
