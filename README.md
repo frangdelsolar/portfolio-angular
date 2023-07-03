@@ -82,7 +82,8 @@ You can access the public version of this application navigating to https://fjgs
 
 Here's a video where I am navigating through the functionalities of this miniapp. 
 
-https://youtu.be/VYO2v9G6j3U
+
+[<img src="[https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg](https://www.youtube.com/watch?v=VYO2v9G6j3U)" width="50%">]
 
 
 ## Future Improvements
