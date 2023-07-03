@@ -10,8 +10,8 @@ I chose to create this web app by combining my resume, blog, and portfolio into 
 
 Here is a summary of the features that this project showcase:
 
--**Personal Details and Contact**:
-As a wrapper to most of the sections on the miniapp. There are four sections that display my personal details, along with contact details, social media, a section with various documents that can be downloaded, and also a contact form.
+- **Personal Details and Contact**:
+  As a wrapper to most of the sections on the miniapp. There are four sections that display my personal details, along with contact details, social media, a section with various documents that can be downloaded, and also a contact form.
 
 - **Resume**:
   The resume section displays four elements that withhold most of the curriculum vitae information related. The sections listed are:
