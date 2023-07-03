@@ -80,6 +80,11 @@ To download and install this Angular project, follow the steps below:
 
 You can access the public version of this application navigating to https://fjgs-cv.web.app/
 
+Here's a video where I am navigating through the functionalities of this miniapp. 
+
+https://youtu.be/VYO2v9G6j3U
+
+
 ## Future Improvements
 
 While the current version of the project showcases my skills and capabilities as a fullstack developer, there are several areas that can be improved and expanded upon in the future. Some potential enhancements include:
