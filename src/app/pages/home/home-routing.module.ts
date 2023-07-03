@@ -26,10 +26,6 @@ const routes: Routes = [
         component: BlogComponent,
       },
       {
-        path: 'contact',
-        component: ContactComponent,
-      },
-      {
         path: 'resume',
         component: ResumeComponent,
       },

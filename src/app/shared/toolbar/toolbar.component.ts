@@ -38,11 +38,6 @@ export class ToolbarComponent implements OnInit {
         icon: 'pi pi-fw pi-book',
         routerLink: ['/blog'],
       },
-      {
-        label: 'Contact',
-        icon: 'pi pi-fw pi-envelope',
-        routerLink: ['/contact'],
-      },
     ];
 
     this.activeItem = this.items[0];

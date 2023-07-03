@@ -36,7 +36,7 @@ export class AttachmentsComponent implements OnInit {
     this.dialogSvc.show({
       component: AttachmentFormComponent,
       params: {
-        header: 'Add Attachment',
+        header: 'Add Document',
         width: '50%',
         contentStyle: { overflow: 'auto' },
         baseZIndex: 10000,
@@ -55,7 +55,7 @@ export class AttachmentsComponent implements OnInit {
       component: AttachmentFormComponent,
       data: { item: item },
       params: {
-        header: 'Edit Attachment',
+        header: 'Edit Document',
         width: '50%',
         contentStyle: { overflow: 'auto' },
         baseZIndex: 10000,
